@@ -43,6 +43,7 @@ class ChatbotViewSet(viewsets.ViewSet):
             if conversation_id:
                 try:
                     conversation = Conversation.objects.get(id=conversation_id)
+                    print("conversation", conversation)
                 except Conversation.DoesNotExist:
                     return Response(
                         {"error": f"Conversation with ID {conversation_id} not found"},

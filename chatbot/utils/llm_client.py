@@ -58,17 +58,6 @@ class MistralLLMClient:
             raise
     
     def generate_response(self, prompt, context=None, max_length=1024):
-        """
-        Generate a response from the LLM
-        
-        Args:
-            prompt (str): The user's question
-            context (str, optional): Relevant context retrieved from documents
-            max_length (int): Maximum length of the generated response
-            
-        Returns:
-            str: The generated response
-        """
         try:
             # Construct full prompt with context if available
             if context:
