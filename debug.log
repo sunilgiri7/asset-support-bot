@@ -1,0 +1,202 @@
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /api/documents?asset_id=11 HTTP/1.1" 301 0
+"GET /api/documents/?asset_id=11 HTTP/1.1" 200 432
+"POST /api/documents/ HTTP/1.1" 201 430
+"POST /api/chatbot/query/ HTTP/1.1" 200 3767
+/home/dell/asset-support-bot/documents/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/documents/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/documents/tasks.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/documents/tasks.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/documents/tasks.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/documents/tasks.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/documents/tasks.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/documents/tasks.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/documents/tasks.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/documents/tasks.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/documents/tasks.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /api/documents/ HTTP/1.1" 201 430
+/home/dell/asset-support-bot/chatbot/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /api/documents/ HTTP/1.1" 201 430
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+Extracting text from document: Testing Document
+Extracting text from document: Testing Document
+Extracting text from document: Testing Document
+Extracting text from document: Testing Document
+Extracting text from document: Testing Document
+Chunking text from document: Testing Document
+Generating embeddings for document: Testing Document
+Chunking text from document: Testing Document
+Generating embeddings for document: Testing Document
+Chunking text from document: Testing Document
+Chunking text from document: Testing Document
+Generating embeddings for document: Testing Document
+Generating embeddings for document: Testing Document
+Chunking text from document: Testing Document
+Generating embeddings for document: Testing Document
+"POST /api/documents/ HTTP/1.1" 201 430
+Extracting text from document: Testing Document
+Chunking text from document: Testing Document
+Generating embeddings for document: Testing Document
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/documents/tasks.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+In process_document
+"POST /api/documents/ HTTP/1.1" 201 430
+Processing document: Testing Document - Asset: 14
+File path: /home/dell/asset-support-bot/media/documents/IoT_Vibration_Data_Description_Document_uiZLMa3.docx
+Extracted text from document: Testing Document
+Created 4 chunks from document: Testing Document
+Generating embeddings for document: Testing Document
+Error processing document 4267e369-2492-4f16-aa3f-96d0f3abbcff: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'content-type': 'text/plain; charset=utf-8', 'access-control-allow-origin': '*', 'vary': 'origin,access-control-request-method,access-control-request-headers', 'access-control-expose-headers': '*', 'x-pinecone-api-version': '2025-01', 'x-cloud-trace-context': '6d38989e692f830b584b3d298eb7ef97', 'date': 'Mon, 24 Mar 2025 18:02:35 GMT', 'server': 'Google Frontend', 'Content-Length': '125', 'Via': '1.1 google', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'})
+HTTP response body: {"error":{"code":"INVALID_ARGUMENT","message":"Name must consist of lower case alphanumeric characters or '-'"},"status":400}
+
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /api/documents/ HTTP/1.1" 201 430
+In process_document
+Processing document: Testing Document - Asset: 15
+File path: /home/dell/asset-support-bot/media/documents/IoT_Vibration_Data_Description_Document_7bKr0Pl.docx
+Extracted text from document: Testing Document
+Created 4 chunks from document: Testing Document
+Generating embeddings for document: Testing Document
+Embedding success: True
+conversation--------> Conversation 7168ee5b-73ef-4afd-b537-dfd1900045f9 - Asset: 10
+user_message------> User message in 7168ee5b-73ef-4afd-b537-dfd1900045f9
+Error processing query: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Mon, 24 Mar 2025 18:06:39 GMT', 'Content-Type': 'application/json', 'Content-Length': '103', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '3', 'x-pinecone-request-id': '2627512624338658976', 'x-envoy-upstream-service-time': '2', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 1024","details":[]}
+
+Internal Server Error: /api/chatbot/query/
+"POST /api/chatbot/query/ HTTP/1.1" 500 512
+/home/dell/asset-support-bot/chatbot/views.py changed, reloading.
+Watching for file changes with StatReloader
+conversation--------> Conversation 96da5148-51bb-4064-908f-18ad1c96facb - Asset: 10
+user_message------> User message in 96da5148-51bb-4064-908f-18ad1c96facb
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 3808
+/home/dell/asset-support-bot/chatbot/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /api/documents/ HTTP/1.1" 201 430
+In process_document
+Processing document: Testing Document - Asset: 16
+File path: /home/dell/asset-support-bot/media/documents/IoT_Vibration_Data_Description_Document_FWsq8PN.docx
+Extracted text from document: Testing Document
+Created 4 chunks from document: Testing Document
+Generating embeddings for document: Testing Document
+Error processing document 14293e4e-e08a-4059-aba3-dccbde0c5b90: PineconeClient.__new__() got an unexpected keyword argument 'asset_id'
+/home/dell/asset-support-bot/documents/tasks.py changed, reloading.
+Watching for file changes with StatReloader
+In process_document
+"POST /api/documents/ HTTP/1.1" 201 430
+Processing document: Testing Document - Asset: 16
+File path: /home/dell/asset-support-bot/media/documents/IoT_Vibration_Data_Description_Document_RNU5zXJ.docx
+Extracted text from document: Testing Document
+Created 4 chunks from document: Testing Document
+Generating embeddings for document: Testing Document
+Error processing document 91c9f780-6e44-4d04-bcea-18fb727f0afd: PineconeClient.__new__() got an unexpected keyword argument 'asset_id'
+"POST /api/documents/ HTTP/1.1" 201 430
+Extracting text from document: Testing Document
+Chunking text from document: Testing Document
+Generating embeddings for document: Testing Document
+/home/dell/asset-support-bot/documents/tasks.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /api/documents/ HTTP/1.1" 201 430
+Extracting text from document: Testing Document
+Chunking text from document: Testing Document
+Generating embeddings for document: Testing Document
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /api/documents/ HTTP/1.1" 201 430
+Extracting text from document: Testing Document
+Chunking text from document: Testing Document
+Generating embeddings for document: Testing Document
+Successfully processed document: Testing Document
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /api/documents/ HTTP/1.1" 201 430
+Extracting text from document: Testing Document
+Chunking text from document: Testing Document
+Generating embeddings for document: Testing Document
+Error processing document 21a20a79-657a-4395-9b79-562329f07459: CUDA out of memory. Tried to allocate 16.00 MiB. GPU 0 has a total capacity of 1.95 GiB of which 3.56 MiB is free. Process 74665 has 148.00 MiB memory in use. Process 78610 has 1.32 GiB memory in use. Including non-PyTorch memory, this process has 480.00 MiB memory in use. Of the allocated memory 442.37 MiB is allocated by PyTorch, and 11.63 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /api/documents/ HTTP/1.1" 201 430
+Extracting text from document: Testing Document
+Chunking text from document: Testing Document
+Generating embeddings for document: Testing Document
+Successfully processed document: Testing Document
+conversation--------> Conversation fe209a87-6fd9-44f6-abaf-efcb8d374889 - Asset: 10
+user_message------> User message in fe209a87-6fd9-44f6-abaf-efcb8d374889
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 3510
+conversation--------> Conversation 6f4ada12-2437-4a8b-b91f-6038284aae0e - Asset: 19
+user_message------> User message in 6f4ada12-2437-4a8b-b91f-6038284aae0e
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 2706
+/home/dell/asset-support-bot/chatbot/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/chatbot/utils/llm_client.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/chatbot/utils/llm_client.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/chatbot/utils/llm_client.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/chatbot/utils/llm_client.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/chatbot/utils/llm_client.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/chatbot/utils/llm_client.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/chatbot/utils/llm_client.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/chatbot/utils/llm_client.py changed, reloading.
+Watching for file changes with StatReloader
+conversation--------> Conversation 9ff5b2d9-6a66-4069-b485-c54164ba4e73 - Asset: 19
+user_message------> User message in 9ff5b2d9-6a66-4069-b485-c54164ba4e73
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure
+Asset ID: 19
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 3696

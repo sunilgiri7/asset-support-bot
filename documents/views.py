@@ -25,6 +25,7 @@ class DocumentViewSet(viewsets.ModelViewSet):
         """Handle file upload and trigger document processing"""
         # Save the document
         document = serializer.save()
+        print("documents-------->", document)
         
         # Trigger asynchronous processing
         process_document.delay(str(document.id))

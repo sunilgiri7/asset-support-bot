@@ -68,15 +68,12 @@ WSGI_APPLICATION = 'asset_support_bot.wsgi.application'
 # Database configuration
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.environ.get('DB_NAME', 'asset_support_db'),
         'USER': os.environ.get('DB_USER', 'root'),
         'PASSWORD': os.environ.get('DB_PASSWORD', 'Sunilgiri#1#'),
         'HOST': os.environ.get('DB_HOST', 'localhost'),
-        'PORT': os.environ.get('DB_PORT', '3306'),
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
+        'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
 
@@ -135,13 +132,44 @@ MAX_UPLOAD_SIZE = 10 * 1024 * 1024  # 10 MB
 
 # LLM Settings
 LLM_MODEL_ID = os.getenv('LLM_MODEL_ID', 'mistralai/Mistral-7B-Instruct-v0.2')
-EMBEDDING_MODEL_ID = os.getenv('EMBEDDING_MODEL_ID', 'sentence-transformers/all-MiniLM-L6-v2')
+EMBEDDING_MODEL_ID = os.getenv('EMBEDDING_MODEL_ID', 'all-MiniLM-L6-v2')
+HF_ACCESS_TOKEN = os.getenv('HF_ACCESS_TOKEN', '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')
+MISTRAL_API_KEY = os.getenv('MISTRAL_API_KEY', 'VrqhfV38Mxr8T90JzfEZ0cjINtm6Th5o')
 
 # Pinecone settings
 PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
 PINECONE_ENVIRONMENT = os.getenv('PINECONE_ENVIRONMENT')
-PINECONE_INDEX_NAME = os.getenv('PINECONE_INDEX_NAME', 'graceful-oak')
+PINECONE_INDEX_NAME = os.getenv('PINECONE_INDEX_NAME', 'asset-support-index')
 
 # Document processing
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 200
+
+# settings.py
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+        'file': {
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+        },
+        'documents': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+        },
+        'chatbot': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+        },
+    },
+}
