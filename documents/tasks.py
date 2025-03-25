@@ -11,15 +11,15 @@ logger = logging.getLogger(__name__)
 def process_document(document_id):
     """
     Process a document to extract text and generate embeddings
-    
     Args:
-        document_id (str): UUID of the document to process
+    document_id (str): UUID of the document to process
     """
     try:
         print("In process_document")
         # Get the document
         document = Document.objects.get(id=document_id)
         print("document in process", document)
+        
         # Validate file exists
         if not document.file:
             logger.error(f"No file attached to document: {document.title}")
@@ -62,10 +62,11 @@ def process_document(document_id):
         logger.info(f"Generating embeddings for document: {document.title}")
         pinecone_client = PineconeClient()
         print("pinecone_client", pinecone_client)
+        
         embedding_success = pinecone_client.store_document_chunks(
             chunks=chunks,
-            asset_id=document.asset_id,
-            document_id=document_id
+            asset_id=str(document.asset_id),
+            document_id=str(document_id)
         )
         print("embedding_success", embedding_success)
         
@@ -82,9 +83,9 @@ def process_document(document_id):
     
     except Document.DoesNotExist:
         logger.error(f"Document with ID {document_id} not found")
+    
     except Exception as e:
         logger.error(f"Error processing document {document_id}: {str(e)}")
-        
         # Update document with error
         try:
             document = Document.objects.get(id=document_id)

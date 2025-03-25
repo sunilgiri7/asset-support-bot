@@ -200,3 +200,996 @@ Retrieved context chunks: []
 context_chunks-----> []
 context--------> 
 "POST /api/chatbot/query/ HTTP/1.1" 200 3696
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+conversation--------> Conversation 200cc43e-5057-4e81-9b2f-6f460e37fd25 - Asset: 19
+user_message------> User message in 200cc43e-5057-4e81-9b2f-6f460e37fd25
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure
+Asset ID: 19
+Retrieved context chunks: [{'text': "IoT Vibration Data Description Document\n\nOverview\nThis document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.", 'score': 0.725059092, 'document_id': '9360926e-75fc-4555-b1db-86a810f005a5', 'chunk_index': 0.0}, {'text': 't of integers):\nThe vibration data collected for the respective axis.\nThe list contains no_of_samples integers representing the raw vibration measurements.\nExample: [1, 2, 3, ..., <26039 data points>]\n\nData Consistency Rules\nFile Naming:\nEach timestamp will have three JSON files named based on the respective axes (Axial, Vertical, Horizontal).\nExample: For timestamp 1524017318, the files will be: \nAxial_1524017318.json\nVertical_1524017318.json\nHorizontal_1524017318.json\nConsistency of fs:\nThe fs value (sampling frequency) will be the same across all three axis files for a given timestamp.\nNumber of Samples:\nThe no_of_samples field will be identical across all three axis files for a given timestamp.', 'score': 0.468396217, 'document_id': '9360926e-75fc-4555-b1db-86a810f005a5', 'chunk_index': 2.0}, {'text': 'a collected from sensors. The data is stored in JSON format, with each timestamp\'s data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.\n\nData File Structure\nFor every timestamp instance, the data is stored in three separate JSON files:\nAxial: Axial_<timestamp>.json\nVertical: Vertical_<timestamp>.json\nHorizontal: Horizontal_<timestamp>.json\nEach file contains the following information:\nJSON Structure\n{\n    "timestamp": <float>,\n    "no_of_samples": <int>,\n    "fs": <float>,\n    "axis": <string>,\n    "raw_data": [<int>, <int>, <int>, ...]\n}\nField Descriptions\ntimestamp (float):\nThe UNIX timestamp indicating when the data was collected.\nExample: 1524017318.0\nno_of_samples (int):\nThe total number of data points collected for the given axis.\nExample: 16384\nfs (float):\nThe sampling frequency (in Hz) used during data collection.\nNote: The fs value might slightly vary across different timestamps but will remain consistent across all three axes (Axial, Vertical, Horizontal) for a given timestamp.\nExample: 26039\naxis (string):\nThe axis for which the vibration data is recorded.\nPossible values: "Axial", "Vertical", "Horizontal"\nraw_data (list of integers):\nThe vibration data collected for the respective axis.\nThe list contains no_of_samples integers representing the raw vibration measurements.\nExample: [1, 2, 3, ..., <26039 data points>]', 'score': 0.431117922, 'document_id': '9360926e-75fc-4555-b1db-86a810f005a5', 'chunk_index': 1.0}]
+context_chunks-----> [{'text': "IoT Vibration Data Description Document\n\nOverview\nThis document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.", 'score': 0.725059092, 'document_id': '9360926e-75fc-4555-b1db-86a810f005a5', 'chunk_index': 0.0}, {'text': 't of integers):\nThe vibration data collected for the respective axis.\nThe list contains no_of_samples integers representing the raw vibration measurements.\nExample: [1, 2, 3, ..., <26039 data points>]\n\nData Consistency Rules\nFile Naming:\nEach timestamp will have three JSON files named based on the respective axes (Axial, Vertical, Horizontal).\nExample: For timestamp 1524017318, the files will be: \nAxial_1524017318.json\nVertical_1524017318.json\nHorizontal_1524017318.json\nConsistency of fs:\nThe fs value (sampling frequency) will be the same across all three axis files for a given timestamp.\nNumber of Samples:\nThe no_of_samples field will be identical across all three axis files for a given timestamp.', 'score': 0.468396217, 'document_id': '9360926e-75fc-4555-b1db-86a810f005a5', 'chunk_index': 2.0}, {'text': 'a collected from sensors. The data is stored in JSON format, with each timestamp\'s data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.\n\nData File Structure\nFor every timestamp instance, the data is stored in three separate JSON files:\nAxial: Axial_<timestamp>.json\nVertical: Vertical_<timestamp>.json\nHorizontal: Horizontal_<timestamp>.json\nEach file contains the following information:\nJSON Structure\n{\n    "timestamp": <float>,\n    "no_of_samples": <int>,\n    "fs": <float>,\n    "axis": <string>,\n    "raw_data": [<int>, <int>, <int>, ...]\n}\nField Descriptions\ntimestamp (float):\nThe UNIX timestamp indicating when the data was collected.\nExample: 1524017318.0\nno_of_samples (int):\nThe total number of data points collected for the given axis.\nExample: 16384\nfs (float):\nThe sampling frequency (in Hz) used during data collection.\nNote: The fs value might slightly vary across different timestamps but will remain consistent across all three axes (Axial, Vertical, Horizontal) for a given timestamp.\nExample: 26039\naxis (string):\nThe axis for which the vibration data is recorded.\nPossible values: "Axial", "Vertical", "Horizontal"\nraw_data (list of integers):\nThe vibration data collected for the respective axis.\nThe list contains no_of_samples integers representing the raw vibration measurements.\nExample: [1, 2, 3, ..., <26039 data points>]', 'score': 0.431117922, 'document_id': '9360926e-75fc-4555-b1db-86a810f005a5', 'chunk_index': 1.0}]
+context--------> Relevant Context:
+1. IoT Vibration Data Description Document
+
+Overview
+This document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal. (Relevance Score: 0.73)
+2. t of integers):
+The vibration data collected for the respective axis.
+The list contains no_of_samples integers representing the raw vibration measurements.
+Example: [1, 2, 3, ..., <26039 data points>]
+
+Data Consistency Rules
+File Naming:
+Each timestamp will have three JSON files named based on the respective axes (Axial, Vertical, Horizontal).
+Example: For timestamp 1524017318, the files will be: 
+Axial_1524017318.json
+Vertical_1524017318.json
+Horizontal_1524017318.json
+Consistency of fs:
+The fs value (sampling frequency) will be the same across all three axis files for a given timestamp.
+Number of Samples:
+The no_of_samples field will be identical across all three axis files for a given timestamp. (Relevance Score: 0.47)
+3. a collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.
+
+Data File Structure
+For every timestamp instance, the data is stored in three separate JSON files:
+Axial: Axial_<timestamp>.json
+Vertical: Vertical_<timestamp>.json
+Horizontal: Horizontal_<timestamp>.json
+Each file contains the following information:
+JSON Structure
+{
+    "timestamp": <float>,
+    "no_of_samples": <int>,
+    "fs": <float>,
+    "axis": <string>,
+    "raw_data": [<int>, <int>, <int>, ...]
+}
+Field Descriptions
+timestamp (float):
+The UNIX timestamp indicating when the data was collected.
+Example: 1524017318.0
+no_of_samples (int):
+The total number of data points collected for the given axis.
+Example: 16384
+fs (float):
+The sampling frequency (in Hz) used during data collection.
+Note: The fs value might slightly vary across different timestamps but will remain consistent across all three axes (Axial, Vertical, Horizontal) for a given timestamp.
+Example: 26039
+axis (string):
+The axis for which the vibration data is recorded.
+Possible values: "Axial", "Vertical", "Horizontal"
+raw_data (list of integers):
+The vibration data collected for the respective axis.
+The list contains no_of_samples integers representing the raw vibration measurements.
+Example: [1, 2, 3, ..., <26039 data points>] (Relevance Score: 0.43)
+
+"POST /api/chatbot/query/ HTTP/1.1" 200 2424
+Not Found: /
+"GET / HTTP/1.1" 404 2804
+/app/chatbot/utils/llm_client.py changed, reloading.
+Watching for file changes with StatReloader
+/app/chatbot/views.py changed, reloading.
+Watching for file changes with StatReloader
+/app/chatbot/views.py changed, reloading.
+Watching for file changes with StatReloader
+conversation--------> Conversation b59e04b1-8d7a-47d4-b2c8-bb84fcd41cf7 - Asset: 19
+user_message------> User message in b59e04b1-8d7a-47d4-b2c8-bb84fcd41cf7
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure
+Asset ID: 19
+Retrieved context chunks: [{'text': "IoT Vibration Data Description Document\n\nOverview\nThis document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.", 'score': 0.725059092, 'document_id': '9360926e-75fc-4555-b1db-86a810f005a5', 'chunk_index': 0.0}, {'text': 't of integers):\nThe vibration data collected for the respective axis.\nThe list contains no_of_samples integers representing the raw vibration measurements.\nExample: [1, 2, 3, ..., <26039 data points>]\n\nData Consistency Rules\nFile Naming:\nEach timestamp will have three JSON files named based on the respective axes (Axial, Vertical, Horizontal).\nExample: For timestamp 1524017318, the files will be: \nAxial_1524017318.json\nVertical_1524017318.json\nHorizontal_1524017318.json\nConsistency of fs:\nThe fs value (sampling frequency) will be the same across all three axis files for a given timestamp.\nNumber of Samples:\nThe no_of_samples field will be identical across all three axis files for a given timestamp.', 'score': 0.468396217, 'document_id': '9360926e-75fc-4555-b1db-86a810f005a5', 'chunk_index': 2.0}, {'text': 'a collected from sensors. The data is stored in JSON format, with each timestamp\'s data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.\n\nData File Structure\nFor every timestamp instance, the data is stored in three separate JSON files:\nAxial: Axial_<timestamp>.json\nVertical: Vertical_<timestamp>.json\nHorizontal: Horizontal_<timestamp>.json\nEach file contains the following information:\nJSON Structure\n{\n    "timestamp": <float>,\n    "no_of_samples": <int>,\n    "fs": <float>,\n    "axis": <string>,\n    "raw_data": [<int>, <int>, <int>, ...]\n}\nField Descriptions\ntimestamp (float):\nThe UNIX timestamp indicating when the data was collected.\nExample: 1524017318.0\nno_of_samples (int):\nThe total number of data points collected for the given axis.\nExample: 16384\nfs (float):\nThe sampling frequency (in Hz) used during data collection.\nNote: The fs value might slightly vary across different timestamps but will remain consistent across all three axes (Axial, Vertical, Horizontal) for a given timestamp.\nExample: 26039\naxis (string):\nThe axis for which the vibration data is recorded.\nPossible values: "Axial", "Vertical", "Horizontal"\nraw_data (list of integers):\nThe vibration data collected for the respective axis.\nThe list contains no_of_samples integers representing the raw vibration measurements.\nExample: [1, 2, 3, ..., <26039 data points>]', 'score': 0.431117922, 'document_id': '9360926e-75fc-4555-b1db-86a810f005a5', 'chunk_index': 1.0}]
+context_chunks-----> [{'text': "IoT Vibration Data Description Document\n\nOverview\nThis document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.", 'score': 0.725059092, 'document_id': '9360926e-75fc-4555-b1db-86a810f005a5', 'chunk_index': 0.0}, {'text': 't of integers):\nThe vibration data collected for the respective axis.\nThe list contains no_of_samples integers representing the raw vibration measurements.\nExample: [1, 2, 3, ..., <26039 data points>]\n\nData Consistency Rules\nFile Naming:\nEach timestamp will have three JSON files named based on the respective axes (Axial, Vertical, Horizontal).\nExample: For timestamp 1524017318, the files will be: \nAxial_1524017318.json\nVertical_1524017318.json\nHorizontal_1524017318.json\nConsistency of fs:\nThe fs value (sampling frequency) will be the same across all three axis files for a given timestamp.\nNumber of Samples:\nThe no_of_samples field will be identical across all three axis files for a given timestamp.', 'score': 0.468396217, 'document_id': '9360926e-75fc-4555-b1db-86a810f005a5', 'chunk_index': 2.0}, {'text': 'a collected from sensors. The data is stored in JSON format, with each timestamp\'s data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.\n\nData File Structure\nFor every timestamp instance, the data is stored in three separate JSON files:\nAxial: Axial_<timestamp>.json\nVertical: Vertical_<timestamp>.json\nHorizontal: Horizontal_<timestamp>.json\nEach file contains the following information:\nJSON Structure\n{\n    "timestamp": <float>,\n    "no_of_samples": <int>,\n    "fs": <float>,\n    "axis": <string>,\n    "raw_data": [<int>, <int>, <int>, ...]\n}\nField Descriptions\ntimestamp (float):\nThe UNIX timestamp indicating when the data was collected.\nExample: 1524017318.0\nno_of_samples (int):\nThe total number of data points collected for the given axis.\nExample: 16384\nfs (float):\nThe sampling frequency (in Hz) used during data collection.\nNote: The fs value might slightly vary across different timestamps but will remain consistent across all three axes (Axial, Vertical, Horizontal) for a given timestamp.\nExample: 26039\naxis (string):\nThe axis for which the vibration data is recorded.\nPossible values: "Axial", "Vertical", "Horizontal"\nraw_data (list of integers):\nThe vibration data collected for the respective axis.\nThe list contains no_of_samples integers representing the raw vibration measurements.\nExample: [1, 2, 3, ..., <26039 data points>]', 'score': 0.431117922, 'document_id': '9360926e-75fc-4555-b1db-86a810f005a5', 'chunk_index': 1.0}]
+context--------> Context Chunk 1: IoT Vibration Data Description Document
+
+Overview
+This document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal. (Relevance: 0.73)
+Context Chunk 2: t of integers):
+The vibration data collected for the respective axis.
+The list contains no_of_samples integers representing the raw vibration measurements.
+Example: [1, 2, 3, ..., <26039 data points>]
+
+Data Consistency Rules
+File Naming:
+Each timestamp will have three JSON files named based on the respective axes (Axial, Vertical, Horizontal).
+Example: For timestamp 1524017318, the files will be: 
+Axial_1524017318.json
+Vertical_1524017318.json
+Horizontal_1524017318.json
+Consistency of fs:
+The fs value (sampling frequency) will be the same across all three axis files for a given timestamp.
+Number of Samples:
+The no_of_samples field will be identical across all three axis files for a given timestamp. (Relevance: 0.47)
+Context Chunk 3: a collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.
+
+Data File Structure
+For every timestamp instance, the data is stored in three separate JSON files:
+Axial: Axial_<timestamp>.json
+Vertical: Vertical_<timestamp>.json
+Horizontal: Horizontal_<timestamp>.json
+Each file contains the following information:
+JSON Structure
+{
+    "timestamp": <float>,
+    "no_of_samples": <int>,
+    "fs": <float>,
+    "axis": <string>,
+    "raw_data": [<int>, <int>, <int>, ...]
+}
+Field Descriptions
+timestamp (float):
+The UNIX timestamp indicating when the data was collected.
+Example: 1524017318.0
+no_of_samples (int):
+The total number of data points collected for the given axis.
+Example: 16384
+fs (float):
+The sampling frequency (in Hz) used during data collection.
+Note: The fs value might slightly vary across different timestamps but will remain consistent across all three axes (Axial, Vertical, Horizontal) for a given timestamp.
+Example: 26039
+axis (string):
+The axis for which the vibration data is recorded.
+Possible values: "Axial", "Vertical", "Horizontal"
+raw_data (list of integers):
+The vibration data collected for the respective axis.
+The list contains no_of_samples integers representing the raw vibration measurements.
+Example: [1, 2, 3, ..., <26039 data points>] (Relevance: 0.43)
+"POST /api/chatbot/query/ HTTP/1.1" 200 1955
+Not Found: /api/chatbot/query/10
+"GET /api/chatbot/query/10 HTTP/1.1" 404 4218
+"GET /api/chatbot/query?asset_id=10 HTTP/1.1" 301 0
+Method Not Allowed: /api/chatbot/query/
+"GET /api/chatbot/query/?asset_id=10 HTTP/1.1" 405 40
+"GET /api/chatbot/ HTTP/1.1" 200 2
+"GET /api/chatbot?asset_id=10 HTTP/1.1" 301 0
+"GET /api/chatbot/?asset_id=10 HTTP/1.1" 200 2
+"GET /api/chatbot?asset_id=19 HTTP/1.1" 301 0
+"GET /api/chatbot/?asset_id=19 HTTP/1.1" 200 2
+"GET /api/chatbot/ HTTP/1.1" 200 2
+"GET /api/chatbot/ HTTP/1.1" 200 2
+Method Not Allowed: /api/chatbot/query/
+"GET /api/chatbot/query/ HTTP/1.1" 405 40
+Method Not Allowed: /api/chatbot/
+"POST /api/chatbot/ HTTP/1.1" 405 41
+Bad Request: /api/chatbot/query/
+"POST /api/chatbot/query/ HTTP/1.1" 400 39
+Method Not Allowed: /api/chatbot/
+"POST /api/chatbot/ HTTP/1.1" 405 41
+"GET /api/chatbot/ HTTP/1.1" 200 2
+"GET /api/chatbot/ HTTP/1.1" 200 2
+"GET /api/documents/ HTTP/1.1" 200 2
+"GET /api/documents?asset_id=10 HTTP/1.1" 301 0
+"GET /api/documents/?asset_id=10 HTTP/1.1" 200 2
+"GET /api/documents?asset_id=19 HTTP/1.1" 301 0
+"GET /api/documents/?asset_id=19 HTTP/1.1" 200 2
+Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 127, in reconnect_on_error
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 957, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 786, in execute_command
+    self.connection = self.connection_pool.get_connection(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 800, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 169, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 384, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 2009, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/app/documents/views.py", line 31, in perform_create
+    process_document.delay(str(document.id))
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 798, in send_task
+    with P.connection._reraise_as_library_errors():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 111 connecting to localhost:6379. Connection refused.
+"POST /api/documents/ HTTP/1.1" 500 289161
+Internal Server Error: /api/documents
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/utils/deprecation.py", line 131, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 0.0.0.0:2025/api/documents/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+"POST /api/documents HTTP/1.1" 500 67316
+Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 127, in reconnect_on_error
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 957, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 786, in execute_command
+    self.connection = self.connection_pool.get_connection(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 800, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 169, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 384, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 2009, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/app/documents/views.py", line 31, in perform_create
+    process_document.delay(str(document.id))
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 798, in send_task
+    with P.connection._reraise_as_library_errors():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 111 connecting to localhost:6379. Connection refused.
+"POST /api/documents/ HTTP/1.1" 500 289161
+Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 127, in reconnect_on_error
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 957, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 786, in execute_command
+    self.connection = self.connection_pool.get_connection(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 800, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 169, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 384, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 2009, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/app/documents/views.py", line 31, in perform_create
+    process_document.delay(str(document.id))
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 798, in send_task
+    with P.connection._reraise_as_library_errors():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 111 connecting to localhost:6379. Connection refused.
+"POST /api/documents/ HTTP/1.1" 500 289161
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"POST /api/documents/ HTTP/1.1" 201 424
+Extracting text from document: Testing Document
+Chunking text from document: Testing Document
+Generating embeddings for document: Testing Document
+Successfully processed document: Testing Document
+"GET /api/documents/ HTTP/1.1" 200 9322
+"GET /api/chatbot/ HTTP/1.1" 200 2
+"GET /api/chatbot?asset_id=10 HTTP/1.1" 301 0
+"GET /api/chatbot/?asset_id=10 HTTP/1.1" 200 2
+"GET /api/chatbot?asset_id=19 HTTP/1.1" 301 0
+"GET /api/chatbot/?asset_id=19 HTTP/1.1" 200 2
+Method Not Allowed: /api/chatbot/
+"POST /api/chatbot/ HTTP/1.1" 405 41
+"OPTIONS /api/chatbot/query/ HTTP/1.1" 200 0
+conversation--------> Conversation eaded7d0-1600-4798-a2da-bb3b86fc5209 - Asset: 64586e572147c2190f291d56
+user_message------> User message in eaded7d0-1600-4798-a2da-bb3b86fc5209
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure
+Asset ID: 64586e572147c2190f291d56
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 3328
+conversation--------> Conversation 8e1510d9-7114-458d-b9a9-de31c182df55 - Asset: 64586e572147c2190f291d56
+user_message------> User message in 8e1510d9-7114-458d-b9a9-de31c182df55
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure
+Asset ID: 64586e572147c2190f291d56
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 2554
+Method Not Allowed: /api/chatbot/query/
+"GET /api/chatbot/query/ HTTP/1.1" 405 40
+"GET /api/documents?asset_id=19 HTTP/1.1" 301 0
+"GET /api/documents/?asset_id=19 HTTP/1.1" 200 425
+"GET /api/chatbot?conversation_id=1 HTTP/1.1" 301 0
+"GET /api/chatbot/?conversation_id=1 HTTP/1.1" 200 2
+/home/dell/asset-support-bot/chatbot/views.py changed, reloading.
+Watching for file changes with StatReloader
+conversation--------> Conversation 136f429f-5a3a-4feb-ba58-5bf61c78668d - Asset: 19
+user_message------> User message in 136f429f-5a3a-4feb-ba58-5bf61c78668d
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure for asset_id: 19
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 3153
+Bad Request: /api/chatbot/history/
+"GET /api/chatbot/history/ HTTP/1.1" 400 82
+"GET /api/chatbot/history/?conversation_id=136f429f-5a3a-4feb-ba58-5bf61c78668d HTTP/1.1" 200 3199
+"GET /api/chatbot/history/?asset_id=19 HTTP/1.1" 200 9697
+"POST /api/documents/ HTTP/1.1" 201 424
+Extracting text from document: Testing Document
+Chunking text from document: Testing Document
+Generating embeddings for document: Testing Document
+Successfully processed document: Testing Document
+conversation--------> Conversation 30492036-1734-43b0-b399-b6e15ed9f51a - Asset: 20
+user_message------> User message in 30492036-1734-43b0-b399-b6e15ed9f51a
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure for asset_id: 20
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 3368
+/home/dell/asset-support-bot/chatbot/views.py changed, reloading.
+Watching for file changes with StatReloader
+conversation--------> Conversation 9b5dbfa1-ac71-449c-8eab-f6703c231a73 - Asset: 20
+user_message------> User message in 9b5dbfa1-ac71-449c-8eab-f6703c231a73
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure
+Asset ID: 20
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 2533
+/home/dell/asset-support-bot/chatbot/views.py changed, reloading.
+Watching for file changes with StatReloader
+conversation--------> Conversation 0751ff14-7770-4d15-8bc6-0c66124f27ee - Asset: 20
+user_message------> User message in 0751ff14-7770-4d15-8bc6-0c66124f27ee
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure for asset_id: 20
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 2490
+"POST /api/documents/ HTTP/1.1" 201 424
+Extracting text from document: Testing Document
+Chunking text from document: Testing Document
+Generating embeddings for document: Testing Document
+Successfully processed document: Testing Document
+conversation--------> Conversation 323d29ea-6d19-4761-9e27-7272e48b33d6 - Asset: 20
+user_message------> User message in 323d29ea-6d19-4761-9e27-7272e48b33d6
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure for asset_id: 20
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 2590
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+conversation--------> Conversation 88373a80-d4fc-4a9d-871b-a04162149130 - Asset: 20
+user_message------> User message in 88373a80-d4fc-4a9d-871b-a04162149130
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure for asset_id: 20
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 3182
+"GET /api/chatbot/history/?conversation_id=136f429f-5a3a-4feb-ba58-5bf61c78668d HTTP/1.1" 200 3199
+"GET /api/chatbot/history/?asset_id=20 HTTP/1.1" 200 14399
+"GET /api/chatbot/history/?asset_id=10 HTTP/1.1" 200 28456
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /api/chatbot/history/?conversation_id=136f429f-5a3a-4feb-ba58-5bf61c78668d HTTP/1.1" 200 3199
+conversation--------> Conversation 136f429f-5a3a-4feb-ba58-5bf61c78668d - Asset: 19
+user_message------> User message in 136f429f-5a3a-4feb-ba58-5bf61c78668d
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure for asset_id: 20
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 2933
+"GET /api/chatbot/history/?conversation_id=136f429f-5a3a-4feb-ba58-5bf61c78668d HTTP/1.1" 200 6018
+/home/dell/asset-support-bot/asset_support_bot/utils/pinecone_client.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/documents/tasks.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/documents/tasks.py changed, reloading.
+Watching for file changes with StatReloader
+conversation--------> Conversation 136f429f-5a3a-4feb-ba58-5bf61c78668d - Asset: 19
+user_message------> User message in 136f429f-5a3a-4feb-ba58-5bf61c78668d
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure for asset_id: 20
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 3051
+"OPTIONS /api/chatbot/query/ HTTP/1.1" 200 0
+conversation--------> Conversation 5a7729b3-cac2-4aea-bb7f-f68b4cf7beb1 - Asset: 64586e572147c2190f291d56
+user_message------> User message in 5a7729b3-cac2-4aea-bb7f-f68b4cf7beb1
+Retrieving context for query: HIII for asset_id: 64586e572147c2190f291d56
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 453
+/home/dell/asset-support-bot/chatbot/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/chatbot/views.py changed, reloading.
+Watching for file changes with StatReloader
+Bad Request: /api/chatbot/query/
+"POST /api/chatbot/query/ HTTP/1.1" 400 109
+conversation--------> Conversation cf9620b5-5aa7-4ed4-999d-91fff463aae5 - Asset: 64586e572147c2190f291d56
+user_message------> User message in cf9620b5-5aa7-4ed4-999d-91fff463aae5
+conversation--------> Conversation f31eff8f-5a16-4c81-a30c-def7dea6f189 - Asset: 64586e572147c2190f291d56
+user_message------> User message in f31eff8f-5a16-4c81-a30c-def7dea6f189
+Retrieving context for query: Hii for asset_id: 64586e572147c2190f291d56
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 214
+/home/dell/asset-support-bot/chatbot/views.py changed, reloading.
+Watching for file changes with StatReloader
+conversation--------> Conversation 82856a8e-7297-491a-8d30-6a433e10d3b3 - Asset: 64586e572147c2190f291d56
+user_message------> User message in 82856a8e-7297-491a-8d30-6a433e10d3b3
+Retrieving context for query: hoo for asset_id: 64586e572147c2190f291d56
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 470
+conversation--------> Conversation 27bac2cc-0494-4ffd-8101-9ae969bef08d - Asset: 64586e572147c2190f291d56
+user_message------> User message in 27bac2cc-0494-4ffd-8101-9ae969bef08d
+Retrieving context for query: Hii for asset_id: 64586e572147c2190f291d56
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 447
+/home/dell/asset-support-bot/chatbot/views.py changed, reloading.
+Watching for file changes with StatReloader
+conversation--------> Conversation c211717c-80a3-4dcd-b13d-bad63930f1b5 - Asset: 20
+user_message------> User message in c211717c-80a3-4dcd-b13d-bad63930f1b5
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure for asset_id: 20
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 286
+/home/dell/asset-support-bot/chatbot/views.py changed, reloading.
+Watching for file changes with StatReloader
+conversation--------> Conversation 9b213684-12e6-4ad9-8163-a824607b521b - Asset: 20
+user_message------> User message in 9b213684-12e6-4ad9-8163-a824607b521b
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure for asset_id: 20
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 3625
+conversation--------> Conversation c11d98c4-9b7b-4bec-9551-237f43fb61ab - Asset: 123
+user_message------> User message in c11d98c4-9b7b-4bec-9551-237f43fb61ab
+Retrieving context for query: hi for asset_id: 123
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 890
+conversation--------> Conversation 1d6ad6cd-9475-4706-aaeb-301df051cc3b - Asset: 123
+user_message------> User message in 1d6ad6cd-9475-4706-aaeb-301df051cc3b
+Retrieving context for query: hi for asset_id: 123
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 697
+Watching for file changes with StatReloader
+"OPTIONS /api/chatbot/query/ HTTP/1.1" 200 0
+conversation--------> Conversation f98fb57c-7bde-46c5-a738-a78929928e44 - Asset: 668e41a9df29e316ab624145
+user_message------> User message in f98fb57c-7bde-46c5-a738-a78929928e44
+Retrieving context for query: hiii for asset_id: 668e41a9df29e316ab624145
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+"POST /api/chatbot/query/ HTTP/1.1" 200 471
+/home/dell/asset-support-bot/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/home/dell/asset-support-bot/documents/views.py", line 27, in perform_create
+    document = serializer.save()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/rest_framework/serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/documents/serializers.py", line 48, in create
+    return super().create(validated_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/rest_framework/serializers.py", line 989, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/dell/asset-support-bot/documents/models.py", line 60, in save
+    super().save(*args, **kwargs)
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/db/models/base.py", line 892, in save
+    self.save_base(
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/db/models/base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/db/models/base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/db/models/base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1835, in execute_sql
+    for sql, params in self.as_sql():
+                       ^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1760, in as_sql
+    self.prepare_value(field, self.pre_save_val(field, obj))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1708, in pre_save_val
+    return field.pre_save(obj, add=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/db/models/fields/files.py", line 338, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/db/models/fields/files.py", line 99, in save
+    self.name = self.storage.save(name, content, max_length=self.field.max_length)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/core/files/storage/base.py", line 49, in save
+    name = self._save(name, content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/documents/models.py", line 18, in _save
+    return super()._save(name, content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/core/files/storage/filesystem.py", line 141, in _save
+    for chunk in content.chunks():
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/core/files/uploadedfile.py", line 119, in chunks
+    self.file.seek(0)
+ValueError: I/O operation on closed file.
+"POST /api/documents/ HTTP/1.1" 500 217680
+/home/dell/asset-support-bot/documents/models.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/documents/serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/home/dell/asset-support-bot/documents/views.py", line 27, in perform_create
+    document = serializer.save()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/rest_framework/serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/rest_framework/serializers.py", line 989, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dell/asset-support-bot/env/lib/python3.12/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/dell/asset-support-bot/documents/models.py", line 64, in save
+    self.content_type = self.file.content_type
+                        ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FieldFile' object has no attribute 'content_type'
+"POST /api/documents/ HTTP/1.1" 500 134287
+/home/dell/asset-support-bot/documents/models.py changed, reloading.
+Watching for file changes with StatReloader
+/home/dell/asset-support-bot/documents/serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"POST /api/documents/ HTTP/1.1" 201 423
+Error processing document e4f9e912-eb1c-4815-8d2f-a86237044cd2: column documents_document.file_content does not exist
+LINE 1: ...s_document"."title", "documents_document"."file", "documents...
+                                                             ^
+
+/home/dell/asset-support-bot/documents/tasks.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"POST /api/documents/ HTTP/1.1" 201 423
+Extracting text from document: Testing Document
+Chunking text from document: Testing Document
+Generating embeddings for document: Testing Document
+Successfully processed document: Testing Document
+conversation--------> Conversation 7d2d7de8-88ab-4ff8-9a3f-e51e0c1d54bd - Asset: 1
+user_message------> User message in 7d2d7de8-88ab-4ff8-9a3f-e51e0c1d54bd
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure for asset_id: 1
+Retrieved context chunks: [{'text': "IoT Vibration Data Description Document\n\nOverview\nThis document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.", 'score': 0.724918664, 'document_id': 'c08fd20e-0f6a-42a1-b1fe-0d55144c46be', 'chunk_index': 0.0}]
+context_chunks-----> [{'text': "IoT Vibration Data Description Document\n\nOverview\nThis document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.", 'score': 0.724918664, 'document_id': 'c08fd20e-0f6a-42a1-b1fe-0d55144c46be', 'chunk_index': 0.0}]
+context--------> Context Chunk 1: IoT Vibration Data Description Document
+
+Overview
+This document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal. (Relevance: 0.72)
+"POST /api/chatbot/query/ HTTP/1.1" 200 1239
