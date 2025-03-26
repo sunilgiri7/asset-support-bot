@@ -1193,3 +1193,5 @@ context--------> Context Chunk 1: IoT Vibration Data Description Document
 Overview
 This document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal. (Relevance: 0.72)
 "POST /api/chatbot/query/ HTTP/1.1" 200 1239
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader

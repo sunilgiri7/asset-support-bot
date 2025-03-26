@@ -11,8 +11,5 @@ python manage.py migrate
 # Collect static files
 python manage.py collectstatic --noinput
 
-python manage.py runserver 0.0.0.0:2025
-watchmedo auto-restart --patterns="*.py" --ignore-patterns="*.swp;*~" --recursive --delay=2 -- celery -A asset_support_bot worker --loglevel=info
-
 # Execute the container's main command
 exec "$@"
