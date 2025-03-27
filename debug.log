@@ -1195,3 +1195,2205 @@ This document provides a detailed description of the IoT vibration data collecte
 "POST /api/chatbot/query/ HTTP/1.1" 200 1239
 Watching for file changes with StatReloader
 Watching for file changes with StatReloader
+/app/manage.py changed, reloading.
+/app/asset_support_bot/__init__.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /bot/
+Not Found: /
+Not Found: /
+Not Found: /
+Not Found: /
+Method Not Allowed: /api/chatbot/query/
+Error processing query: relation "chatbot_conversation" does not exist
+LINE 1: INSERT INTO "chatbot_conversation" ("id", "asset_id", "creat...
+                    ^
+
+Internal Server Error: /api/chatbot/query/
+Error processing query: relation "chatbot_conversation" does not exist
+LINE 1: INSERT INTO "chatbot_conversation" ("id", "asset_id", "creat...
+                    ^
+
+Internal Server Error: /api/chatbot/query/
+Not Found: /api/chatbot/query/curl
+Error processing query: relation "chatbot_conversation" does not exist
+LINE 1: INSERT INTO "chatbot_conversation" ("id", "asset_id", "creat...
+                    ^
+
+Internal Server Error: /api/chatbot/query/
+Error processing query: relation "chatbot_conversation" does not exist
+LINE 1: INSERT INTO "chatbot_conversation" ("id", "asset_id", "creat...
+                    ^
+
+Internal Server Error: /api/chatbot/query/
+Watching for file changes with StatReloader
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Error processing query: relation "chatbot_conversation" does not exist
+LINE 1: INSERT INTO "chatbot_conversation" ("id", "asset_id", "creat...
+                    ^
+
+Internal Server Error: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Not Found: /
+Not Found: /
+conversation--------> Conversation 8e68ef97-d782-4791-9871-f3a9faad4775 - Asset: 1
+user_message------> User message in 8e68ef97-d782-4791-9871-f3a9faad4775
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure for asset_id: 1
+Retrieved context chunks: [{'text': "IoT Vibration Data Description Document\n\nOverview\nThis document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.", 'score': 0.725059152, 'document_id': 'c08fd20e-0f6a-42a1-b1fe-0d55144c46be', 'chunk_index': 0.0}]
+context_chunks-----> [{'text': "IoT Vibration Data Description Document\n\nOverview\nThis document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.", 'score': 0.725059152, 'document_id': 'c08fd20e-0f6a-42a1-b1fe-0d55144c46be', 'chunk_index': 0.0}]
+context--------> Context Chunk 1: IoT Vibration Data Description Document
+
+Overview
+This document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal. (Relevance: 0.73)
+Not Found: /
+conversation--------> Conversation 95ac4d82-b6a2-420c-81dc-c7b41b58ce45 - Asset: 1
+user_message------> User message in 95ac4d82-b6a2-420c-81dc-c7b41b58ce45
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure for asset_id: 1
+Retrieved context chunks: [{'text': "IoT Vibration Data Description Document\n\nOverview\nThis document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.", 'score': 0.725059152, 'document_id': 'c08fd20e-0f6a-42a1-b1fe-0d55144c46be', 'chunk_index': 0.0}]
+context_chunks-----> [{'text': "IoT Vibration Data Description Document\n\nOverview\nThis document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.", 'score': 0.725059152, 'document_id': 'c08fd20e-0f6a-42a1-b1fe-0d55144c46be', 'chunk_index': 0.0}]
+context--------> Context Chunk 1: IoT Vibration Data Description Document
+
+Overview
+This document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal. (Relevance: 0.73)
+Not Found: /
+Not Found: /
+Not Found: /
+Not Found: /chatbot/query/
+Not Found: /chatbot/
+Method Not Allowed: /api/chatbot/query/
+conversation--------> Conversation e81d45d6-6e12-4cda-93a6-f504a53b4592 - Asset: 1
+user_message------> User message in e81d45d6-6e12-4cda-93a6-f504a53b4592
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure for asset_id: 1
+Retrieved context chunks: [{'text': "IoT Vibration Data Description Document\n\nOverview\nThis document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.", 'score': 0.725059152, 'document_id': 'c08fd20e-0f6a-42a1-b1fe-0d55144c46be', 'chunk_index': 0.0}]
+context_chunks-----> [{'text': "IoT Vibration Data Description Document\n\nOverview\nThis document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.", 'score': 0.725059152, 'document_id': 'c08fd20e-0f6a-42a1-b1fe-0d55144c46be', 'chunk_index': 0.0}]
+context--------> Context Chunk 1: IoT Vibration Data Description Document
+
+Overview
+This document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal. (Relevance: 0.73)
+Method Not Allowed: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Not Found: /bot/api/chatbot/query/
+Not Found: /bot/api/chatbot/query/
+Not Found: /bot/api/chatbot/query/
+Not Found: /bot/api/chatbot/query/
+Not Found: /bot/api/chatbot/query/
+Not Found: /bot/api/chatbot/query/
+Not Found: /bot/api/documents/
+Not Found: /bot/api/documents/
+Not Found: /bot/api/documents/
+Not Found: /bot/api/documents/
+Not Found: /bot/api/documents/
+Not Found: /bot/api/chatbot/query/
+Not Found: /bot/api/documents/
+Not Found: /bot/api/documents/
+Method Not Allowed: /api/chatbot/query/
+Not Found: /chatbot/query/
+Not Found: /documents/
+Not Found: /chatbot/query/
+Not Found: /chatbot/query/
+Not Found: /documents/
+Not Found: /ip.php
+Not Found: /chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Not Found: /bot/api/chatbot/query/
+Not Found: /bot/chatbot/query/
+Not Found: /bot/api/chatbot/query/
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Method Not Allowed: /api/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Not Found: /bot/api/chatbot/query/
+Not Found: /bot/api/chatbot/query/
+Not Found: /bot/api/chatbot/query/
+Not Found: /bot/api/chatbot/query/
+Not Found: /bot/chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+Not Found: /chatbot/query/
+Method Not Allowed: /api/chatbot/query/
+conversation--------> Conversation b98912f8-5e59-4e3f-b4a2-77d891c537c6 - Asset: 1
+user_message------> User message in b98912f8-5e59-4e3f-b4a2-77d891c537c6
+Retrieving context for query: tell me about cars for asset_id: 1
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+Method Not Allowed: /api/chatbot/query/
+Not Found: /
+Not Found: /
+conversation--------> Conversation cb3d5bf8-1dd8-45c2-b1fc-45850b7f65fc - Asset: 1
+user_message------> User message in cb3d5bf8-1dd8-45c2-b1fc-45850b7f65fc
+Retrieving context for query: tell me about cars for asset_id: 1
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+Method Not Allowed: /api/chatbot/query/
+conversation--------> Conversation 26b0fb54-b941-457b-859d-0fb8bc282af9 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 26b0fb54-b941-457b-859d-0fb8bc282af9
+Retrieving context for query: Tell me about cars for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+Bad Request: /api/chatbot/query/
+conversation--------> Conversation f6e2488d-7c82-44a2-a534-d6f212476878 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in f6e2488d-7c82-44a2-a534-d6f212476878
+Retrieving context for query: Tell me about cars for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation ae070ac2-9324-41d4-bc06-cc0e726ffbd8 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in ae070ac2-9324-41d4-bc06-cc0e726ffbd8
+Retrieving context for query: HI for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation d3b8b575-13f8-4c26-8be9-333cf4876d6a - Asset: 668e417bdf29e316ab624140
+user_message------> User message in d3b8b575-13f8-4c26-8be9-333cf4876d6a
+Retrieving context for query: HI for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation c02dae43-bf3b-42d2-b95b-a2b513c21ae8 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in c02dae43-bf3b-42d2-b95b-a2b513c21ae8
+Retrieving context for query: HI for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 5a99db76-8b79-44c5-a3cd-938a74f41d4d - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 5a99db76-8b79-44c5-a3cd-938a74f41d4d
+Retrieving context for query: HI for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 87984c84-6386-433e-ab05-1db9f59ad2e2 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 87984c84-6386-433e-ab05-1db9f59ad2e2
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 29c679c0-e455-4801-84fb-3f16dd1e561b - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 29c679c0-e455-4801-84fb-3f16dd1e561b
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation ec878559-47d6-49c5-b8d7-b04f30a11c4d - Asset: 668e417bdf29e316ab624140
+user_message------> User message in ec878559-47d6-49c5-b8d7-b04f30a11c4d
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 9f0744a9-cd13-45c7-a0a2-395a6db31d1a - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 9f0744a9-cd13-45c7-a0a2-395a6db31d1a
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation c4452fef-e6e9-420f-b500-e42b0d97ce20 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in c4452fef-e6e9-420f-b500-e42b0d97ce20
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 27fb0400-030f-4c13-90fc-62c3c1df9fb3 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 27fb0400-030f-4c13-90fc-62c3c1df9fb3
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 2ca9b2fb-5fd3-4ad6-9923-b6e601274c64 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 2ca9b2fb-5fd3-4ad6-9923-b6e601274c64
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 3764e2cf-e821-41e2-b590-00960e013979 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 3764e2cf-e821-41e2-b590-00960e013979
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 086664ec-25bf-4c00-a28b-c846699b4b19 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 086664ec-25bf-4c00-a28b-c846699b4b19
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 03679b76-3dc8-4586-836a-f085b0bedab6 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 03679b76-3dc8-4586-836a-f085b0bedab6
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation c354cfc9-164f-4fec-9593-16a64992f34f - Asset: 668e417bdf29e316ab624140
+user_message------> User message in c354cfc9-164f-4fec-9593-16a64992f34f
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation b91eb835-7d5e-40f1-8655-d6f027cd3f39 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in b91eb835-7d5e-40f1-8655-d6f027cd3f39
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation d26fa4fd-0c5b-42b1-a4c5-b6890da36e3e - Asset: 668e417bdf29e316ab624140
+user_message------> User message in d26fa4fd-0c5b-42b1-a4c5-b6890da36e3e
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation ab2e3dc5-7e1b-4b3c-a5cf-25af532dfe2d - Asset: 668e417bdf29e316ab624140
+user_message------> User message in ab2e3dc5-7e1b-4b3c-a5cf-25af532dfe2d
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation c2651212-3369-4240-b16e-eb80b1d2bf74 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in c2651212-3369-4240-b16e-eb80b1d2bf74
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+Not Found: /
+conversation--------> Conversation 74ed9ec0-90c5-491c-95c7-4cbbf00f6e1e - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 74ed9ec0-90c5-491c-95c7-4cbbf00f6e1e
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 4aed8309-2222-43df-9b57-322af5f46085 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 4aed8309-2222-43df-9b57-322af5f46085
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation b2d1d3d2-0ea0-4776-8fe0-7a56d20f0e1f - Asset: 668e417bdf29e316ab624140
+user_message------> User message in b2d1d3d2-0ea0-4776-8fe0-7a56d20f0e1f
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 71c64b36-7837-4ad8-939f-d6c9c275c4f9 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 71c64b36-7837-4ad8-939f-d6c9c275c4f9
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 2728a314-eb84-48fa-84da-acf4f199eee7 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 2728a314-eb84-48fa-84da-acf4f199eee7
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation bb990331-f7fa-41ec-bf93-ebb08aaed2d0 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in bb990331-f7fa-41ec-bf93-ebb08aaed2d0
+Retrieving context for query: Hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 0c3ce39b-e3f3-4a96-9a8c-e637709562d7 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 0c3ce39b-e3f3-4a96-9a8c-e637709562d7
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 0ec9516e-727a-4015-ad0c-c3e2b26c0d81 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 0ec9516e-727a-4015-ad0c-c3e2b26c0d81
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 69f7e62c-1aa3-4872-a4cd-728786822fe3 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 69f7e62c-1aa3-4872-a4cd-728786822fe3
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation e786421c-bc4b-4c81-8f5b-85bce5ca9890 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in e786421c-bc4b-4c81-8f5b-85bce5ca9890
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 1ed104b0-ecc0-4087-9104-b9b3175c77ef - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 1ed104b0-ecc0-4087-9104-b9b3175c77ef
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 5cbeb7e8-fa2f-4146-8abf-5073330e6373 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 5cbeb7e8-fa2f-4146-8abf-5073330e6373
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation d771fc93-7f9e-4401-a05e-aee4bdf3234a - Asset: 668e417bdf29e316ab624140
+user_message------> User message in d771fc93-7f9e-4401-a05e-aee4bdf3234a
+Retrieving context for query: Hello for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 8168d7f8-80e7-4554-971c-5eef34d2ef35 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 8168d7f8-80e7-4554-971c-5eef34d2ef35
+Retrieving context for query: HI for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation b8b72a12-639d-4ad9-bfd4-828446214272 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in b8b72a12-639d-4ad9-bfd4-828446214272
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation f0421864-2668-4663-b1c4-1aa4e24efdee - Asset: 668e417bdf29e316ab624140
+user_message------> User message in f0421864-2668-4663-b1c4-1aa4e24efdee
+Retrieving context for query: HI for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 47ec445e-924b-420c-ab15-413234e32518 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 47ec445e-924b-420c-ab15-413234e32518
+Retrieving context for query: Hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 329a0727-509b-4583-a9fe-a8a5f99ea593 - Asset: 668e417bdf29e316ab624140
+user_message------> User message in 329a0727-509b-4583-a9fe-a8a5f99ea593
+Retrieving context for query: Tell me about cards for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation b0ea2372-fcc7-4131-b3e3-4c7657af987f - Asset: 668e417bdf29e316ab624140
+user_message------> User message in b0ea2372-fcc7-4131-b3e3-4c7657af987f
+Retrieving context for query: hi for asset_id: 668e417bdf29e316ab624140
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+Bad Request: /api/chatbot/query/
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 127, in reconnect_on_error
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 957, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 786, in execute_command
+    self.connection = self.connection_pool.get_connection(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 800, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 169, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 384, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 2009, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/app/documents/views.py", line 31, in perform_create
+    process_document.delay(str(document.id))
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 798, in send_task
+    with P.connection._reraise_as_library_errors():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+conversation--------> Conversation 6d35a22d-1340-41cc-97e6-b96ec458ca0d - Asset: 1
+user_message------> User message in 6d35a22d-1340-41cc-97e6-b96ec458ca0d
+Not Found: /chatbot/query/
+conversation--------> Conversation fc51c79e-bb7f-491b-beaf-578b56bce378 - Asset: 1
+user_message------> User message in fc51c79e-bb7f-491b-beaf-578b56bce378
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure for asset_id: 1
+Retrieved context chunks: [{'text': "IoT Vibration Data Description Document\n\nOverview\nThis document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.", 'score': 0.725059152, 'document_id': 'c08fd20e-0f6a-42a1-b1fe-0d55144c46be', 'chunk_index': 0.0}]
+context_chunks-----> [{'text': "IoT Vibration Data Description Document\n\nOverview\nThis document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.", 'score': 0.725059152, 'document_id': 'c08fd20e-0f6a-42a1-b1fe-0d55144c46be', 'chunk_index': 0.0}]
+context--------> Context Chunk 1: IoT Vibration Data Description Document
+
+Overview
+This document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal. (Relevance: 0.73)
+Method Not Allowed: /api/chatbot/query/
+Not Found: /
+conversation--------> Conversation 84dac787-b9a1-4ea3-8c62-416c4c969e57 - Asset: 1
+user_message------> User message in 84dac787-b9a1-4ea3-8c62-416c4c969e57
+Retrieving context for query: tell me about cars for asset_id: 1
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation d53acd34-7058-4891-8647-5cb7539f1cb2 - Asset: 668e7440df29e316ab624164
+user_message------> User message in d53acd34-7058-4891-8647-5cb7539f1cb2
+Retrieving context for query: Hello for asset_id: 668e7440df29e316ab624164
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation c7b54991-14d9-4b50-95b6-8f4d41465d1d - Asset: 668e7440df29e316ab624164
+user_message------> User message in c7b54991-14d9-4b50-95b6-8f4d41465d1d
+Retrieving context for query: how can you help? for asset_id: 668e7440df29e316ab624164
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 6fdd34f8-2b66-458c-986f-d409dc14620b - Asset: 677a16346d767a322d92f376
+user_message------> User message in 6fdd34f8-2b66-458c-986f-d409dc14620b
+Retrieving context for query: hi for asset_id: 677a16346d767a322d92f376
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 802cd983-da40-4683-afa3-c593d65f6a51 - Asset: 677a16346d767a322d92f376
+user_message------> User message in 802cd983-da40-4683-afa3-c593d65f6a51
+Retrieving context for query: how to diagnose unbalance for asset_id: 677a16346d767a322d92f376
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 69708615-0d47-4790-8ffe-c0270a27b4b4 - Asset: 677a16346d767a322d92f376
+user_message------> User message in 69708615-0d47-4790-8ffe-c0270a27b4b4
+Retrieving context for query: how to align motor shaft system for asset_id: 677a16346d767a322d92f376
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 1f4c086d-c57e-4828-aa9e-7f8f3212f0c5 - Asset: 64586e572147c2190f291d56
+user_message------> User message in 1f4c086d-c57e-4828-aa9e-7f8f3212f0c5
+Retrieving context for query: Hi for asset_id: 64586e572147c2190f291d56
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation d538bfad-8692-4728-a502-b616b8128f09 - Asset: 677a16346d767a322d92f376
+user_message------> User message in d538bfad-8692-4728-a502-b616b8128f09
+Retrieving context for query: the temperature of the bearing has increased, what shall i do for asset_id: 677a16346d767a322d92f376
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 2574656a-8896-4650-a4af-4b3e51aa5534 - Asset: 64586e572147c2190f291d56
+user_message------> User message in 2574656a-8896-4650-a4af-4b3e51aa5534
+Retrieving context for query: Hi for asset_id: 64586e572147c2190f291d56
+Bad Request: /api/chatbot/query/
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+Bad Request: /api/chatbot/query/
+conversation--------> Conversation cd282bf9-539e-4a01-b815-64c9d6d83801 - Asset: 64586e572147c2190f291d56
+user_message------> User message in cd282bf9-539e-4a01-b815-64c9d6d83801
+Retrieving context for query: Hi for asset_id: 64586e572147c2190f291d56
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation 753949f0-5ded-4f2b-a880-a0f5eed29f3d - Asset: 64586e572147c2190f291d56
+user_message------> User message in 753949f0-5ded-4f2b-a880-a0f5eed29f3d
+Retrieving context for query: HI for asset_id: 64586e572147c2190f291d56
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+Not Found: /
+Method Not Allowed: /api/chatbot/query/
+Bad Request: /api/chatbot/history/
+Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 127, in reconnect_on_error
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 957, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 786, in execute_command
+    self.connection = self.connection_pool.get_connection(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 800, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 169, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 384, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 2009, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/app/documents/views.py", line 31, in perform_create
+    process_document.delay(str(document.id))
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 798, in send_task
+    with P.connection._reraise_as_library_errors():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+conversation--------> Conversation 6ccdd5c8-e0dc-4323-aff9-5cf66f9257a9 - Asset: 64586e572147c2190f291d56
+user_message------> User message in 6ccdd5c8-e0dc-4323-aff9-5cf66f9257a9
+Retrieving context for query: Hi for asset_id: 64586e572147c2190f291d56
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+conversation--------> Conversation a80e5121-698e-4593-b09d-ac39bc1b7374 - Asset: 64586e572147c2190f291d56
+user_message------> User message in a80e5121-698e-4593-b09d-ac39bc1b7374
+Retrieving context for query: hi for asset_id: 64586e572147c2190f291d56
+Retrieved context chunks: []
+context_chunks-----> []
+context--------> 
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 127, in reconnect_on_error
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 957, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 786, in execute_command
+    self.connection = self.connection_pool.get_connection(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 800, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 169, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 384, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 2009, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/app/documents/views.py", line 31, in perform_create
+    process_document.delay(str(document.id))
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 798, in send_task
+    with P.connection._reraise_as_library_errors():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 127, in reconnect_on_error
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 957, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 786, in execute_command
+    self.connection = self.connection_pool.get_connection(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 800, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 169, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 384, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 2009, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/app/documents/views.py", line 31, in perform_create
+    process_document.delay(str(document.id))
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 798, in send_task
+    with P.connection._reraise_as_library_errors():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 127, in reconnect_on_error
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 957, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 786, in execute_command
+    self.connection = self.connection_pool.get_connection(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 800, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 169, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 384, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 2009, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/app/documents/views.py", line 31, in perform_create
+    process_document.delay(str(document.id))
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 798, in send_task
+    with P.connection._reraise_as_library_errors():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/app/documents/views.py", line 27, in perform_create
+    document = serializer.save()
+               ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/documents/serializers.py", line 63, in create
+    return super().create(validated_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 989, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/app/documents/models.py", line 53, in save
+    super().save(*args, **kwargs)
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 892, in save
+    self.save_base(
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1834, in execute_sql
+    with self.connection.cursor() as cursor:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "asset-support-bot-web-1" (172.22.0.3), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/app/documents/views.py", line 27, in perform_create
+    document = serializer.save()
+               ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/documents/serializers.py", line 63, in create
+    return super().create(validated_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 989, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/app/documents/models.py", line 53, in save
+    super().save(*args, **kwargs)
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 892, in save
+    self.save_base(
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1834, in execute_sql
+    with self.connection.cursor() as cursor:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: connection to server at "asset-support-bot-web-1" (172.22.0.3), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "asset-support-bot-web-1" (172.22.0.3), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/app/documents/views.py", line 27, in perform_create
+    document = serializer.save()
+               ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/documents/serializers.py", line 63, in create
+    return super().create(validated_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 989, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/app/documents/models.py", line 53, in save
+    super().save(*args, **kwargs)
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 892, in save
+    self.save_base(
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1834, in execute_sql
+    with self.connection.cursor() as cursor:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: connection to server at "asset-support-bot-web-1" (172.22.0.3), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 127, in reconnect_on_error
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 957, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 786, in execute_command
+    self.connection = self.connection_pool.get_connection(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 800, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 169, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 384, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 2009, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/app/documents/views.py", line 31, in perform_create
+    process_document.delay(str(document.id))
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 798, in send_task
+    with P.connection._reraise_as_library_errors():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 127, in reconnect_on_error
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 957, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 786, in execute_command
+    self.connection = self.connection_pool.get_connection(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 800, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 169, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 384, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 2009, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/app/documents/views.py", line 31, in perform_create
+    process_document.delay(str(document.id))
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 798, in send_task
+    with P.connection._reraise_as_library_errors():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 698, in _connect
+    for res in socket.getaddrinfo(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 978, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 127, in reconnect_on_error
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 957, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 786, in execute_command
+    self.connection = self.connection_pool.get_connection(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to asset-support-bot-redis-1:6379. Name or service not known.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 698, in _connect
+    for res in socket.getaddrinfo(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 978, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 800, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 169, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 384, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 2009, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to asset-support-bot-redis-1:6379. Name or service not known.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/app/documents/views.py", line 31, in perform_create
+    process_document.delay(str(document.id))
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 798, in send_task
+    with P.connection._reraise_as_library_errors():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error -2 connecting to asset-support-bot-redis-1:6379. Name or service not known.
+/app/asset_support_bot/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 698, in _connect
+    for res in socket.getaddrinfo(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 978, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 127, in reconnect_on_error
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 957, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 786, in execute_command
+    self.connection = self.connection_pool.get_connection(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. Name or service not known.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 698, in _connect
+    for res in socket.getaddrinfo(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 978, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 800, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 169, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 384, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/backends/redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 2009, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. Name or service not known.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/app/documents/views.py", line 31, in perform_create
+    process_document.delay(str(document.id))
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/celery/app/base.py", line 798, in send_task
+    with P.connection._reraise_as_library_errors():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/usr/local/lib/python3.12/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error -2 connecting to redis:6379. Name or service not known.
+conversation--------> Conversation 61a2b4ad-62f4-482c-897c-673b07801657 - Asset: 1
+user_message------> User message in 61a2b4ad-62f4-482c-897c-673b07801657
+conversation--------> Conversation 8a96d328-c2d3-4bb6-bd9d-23e0ec9a13aa - Asset: 1
+user_message------> User message in 8a96d328-c2d3-4bb6-bd9d-23e0ec9a13aa
+Retrieving context for query: Explain IoT Vibration Data Description Document and its Data File Structure for asset_id: 1
+Retrieved context chunks: [{'text': "IoT Vibration Data Description Document\n\nOverview\nThis document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.", 'score': 0.725059152, 'document_id': 'c08fd20e-0f6a-42a1-b1fe-0d55144c46be', 'chunk_index': 0.0}]
+context_chunks-----> [{'text': "IoT Vibration Data Description Document\n\nOverview\nThis document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal.", 'score': 0.725059152, 'document_id': 'c08fd20e-0f6a-42a1-b1fe-0d55144c46be', 'chunk_index': 0.0}]
+context--------> Context Chunk 1: IoT Vibration Data Description Document
+
+Overview
+This document provides a detailed description of the IoT vibration data collected from sensors. The data is stored in JSON format, with each timestamp's data split into three separate files corresponding to the three axes of measurement: Axial, Vertical, and Horizontal. (Relevance: 0.73)
+Bad Request: /api/documents/

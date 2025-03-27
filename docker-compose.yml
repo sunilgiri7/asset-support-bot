@@ -4,7 +4,7 @@ services:
   db:
     image: postgres:15
     environment:
-      POSTGRES_USER: root
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: Sunilgiri@1#
       POSTGRES_DB: asset_support_db
     volumes:
@@ -12,9 +12,16 @@ services:
     ports:
       - "5432:5432"
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "root"]
+      test: ["CMD", "pg_isready", "-U", "postgres"]
       interval: 10s
       retries: 5
+    networks:
+      - mynetwork
+
+  redis:
+    image: redis:6
+    ports:
+      - "6379:6379"
     networks:
       - mynetwork
 
@@ -30,6 +37,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
+      redis:
+        condition: service_started
     expose:
       - "8000"
     networks:

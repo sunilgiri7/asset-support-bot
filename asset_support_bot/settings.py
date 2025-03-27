@@ -16,6 +16,10 @@ DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*,localhost,127.0.0.1').split(',')
 
+print("DB_NAME:", os.environ.get('DB_NAME'))
+print("DB_USER:", os.environ.get('DB_USER'))
+print("DB_HOST:", os.environ.get('DB_HOST'))
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -45,8 +49,43 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOWED_ORIGINS = [
+    "http://ml.presageinsights.ai",
+    "https://ml.presageinsights.ai",
+    "http://13.201.85.22",
+    "https://13.201.85.22",
+    "http://127.0.0.1",
+]
+
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
 ROOT_URLCONF = 'asset_support_bot.urls'
 
+# Inform Django it's behind a proxy
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Disable Django's SSL redirect (handled by NGINX)
+SECURE_SSL_REDIRECT = False
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -70,9 +109,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.environ.get('DB_NAME', 'asset_support_db'),
-        'USER': os.environ.get('DB_USER', 'root'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', 'Sunilgiri#1#'),
-        'HOST': os.environ.get('DB_HOST', 'db'),
+        'USER': os.environ.get('postgres', 'postgres'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'Sunilgiri@1#'),
+        'HOST': os.environ.get('DB_HOST', 'asset-support-bot-db-1'),
         'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
@@ -122,12 +161,13 @@ REST_FRAMEWORK = {
 }
 
 # Celery Configuration
-CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'redis://localhost:6379/0')
-CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND', 'redis://localhost:6379/0')
+CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'redis://redis:6379/0')
+CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND', 'redis://redis:6379/0')
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
-
+REDIS_HOST = os.environ.get('REDIS_HOST', 'asset-support-bot-redis-1')
+REDIS_PORT = os.environ.get('REDIS_PORT', '6379')
 # Document upload settings
 MAX_UPLOAD_SIZE = 10 * 1024 * 1024  # 10 MB
 DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024  # 10 MB
