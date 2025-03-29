@@ -1,8 +1,9 @@
 import os
 import requests
-from django.conf import settings
 import logging
 import re
+import time
+from django.conf import settings
 
 logger = logging.getLogger(__name__)
 
@@ -25,104 +26,77 @@ class MistralLLMClient:
     
     def _clean_response(self, text):
         """
-        Clean and format the response
+        Clean and format the response:
         - Remove excessive whitespace
         - Remove markdown-style formatting
         - Normalize line breaks
         """
-        # Remove markdown formatting
         text = re.sub(r'([*_`])', '', text)
-        
-        # Replace multiple consecutive newlines with a single newline
         text = re.sub(r'\n{2,}', '\n\n', text)
-        
-        # Remove leading/trailing whitespace
-        text = text.strip()
-        
-        return text
+        return text.strip()
     
-    def generate_response(self, prompt, context=None, max_length=1024):
-        """
-        Generate a response using Mistral's Chat Completions API
-        
-        Args:
-            prompt (str): User's query
-            context (str, optional): Relevant context from Pinecone
-            max_length (int, optional): Maximum token length for response
-        
-        Returns:
-            str: Cleaned and formatted generated response
-        """
+    def generate_response(self, prompt, context=None, max_length=500):
+        overall_start = time.perf_counter()
         try:
-            # Prepare messages payload with carefully crafted system prompts
+            # Combine system messages into a single prompt
+            system_content = (
+                "You are a precise, professional technical support assistant. "
+                "Provide clear, concise, and structured responses using plain language. "
+                "Avoid unnecessary technical jargon and special formatting. "
+                "If context is insufficient, state what additional information is needed. "
+                "Follow these guidelines: "
+                "1. Use clear, professional language; "
+                "2. Provide structured information; "
+                "3. Focus on clarity and direct communication; "
+                "4. Respond directly to the query."
+            )
+            if context:
+                system_content += f"\n\nRelevant Context: {context}\n\nUse this context to inform your response."
+            
             messages = [
-                {
-                    "role": "system",
-                    "content": "You are a precise, professional technical support assistant. "
-                               "Provide clear, concise, and structured responses. "
-                               "Use plain language and avoid unnecessary technical jargon. "
-                               "If the context is insufficient, clearly state what additional information is needed."
-                },
-                {
-                    "role": "system",
-                    "content": "Response Guidelines:\n"
-                               "1. Use clear, professional language\n"
-                               "2. Provide structured information\n"
-                               "3. Focus on clarity and direct communication\n"
-                               "4. Avoid markdown or special formatting\n"
-                               "5. Respond directly to the specific query"
-                }
+                {"role": "system", "content": system_content},
+                {"role": "user", "content": prompt}
             ]
             
-            # Add context-aware system message if context is available
-            if context:
-                messages.append({
-                    "role": "system",
-                    "content": f"Relevant Context: {context}\n\n"
-                               "Use the provided context to inform your response. "
-                               "If the context does not fully answer the query, "
-                               "explain what additional information would be helpful."
-                })
-            
-            # Add user prompt
-            messages.append({
-                "role": "user",
-                "content": prompt
-            })
-            
-            # Prepare API request payload
             payload = {
                 "model": "mistral-small-latest",
                 "messages": messages,
-                "temperature": 0.6,  # Slightly reduced for more consistent responses
+                "temperature": 0.6,
                 "max_tokens": max_length,
                 "top_p": 0.8,
                 "response_format": {"type": "text"}
             }
+            logger.info("Prepared payload for Mistral API.")
             
-            # Make API request
+            # Log API call start time
+            api_start = time.perf_counter()
             headers = {
                 "Content-Type": "application/json",
                 "Authorization": f"Bearer {self.api_key}"
             }
-            
             response = requests.post(
                 self.base_url,
                 json=payload,
-                headers=headers
+                headers=headers,
+                timeout=10  # 10-second timeout
             )
+            api_elapsed = time.perf_counter() - api_start
+            logger.info(f"Mistral API call completed in {api_elapsed:.2f} seconds.")
             
-            # Check for successful response
             response.raise_for_status()
-            
-            # Extract and clean the response
             result = response.json()
             assistant_response = result['choices'][0]['message']['content'].strip()
             
             # Clean the response
             cleaned_response = self._clean_response(assistant_response)
+            overall_elapsed = time.perf_counter() - overall_start
+            logger.info(f"Total generate_response time: {overall_elapsed:.2f} seconds.")
             
             return cleaned_response
+        
+        except requests.Timeout:
+            logger.error("Mistral API request timed out after 10 seconds")
+            return "Sorry, the response is taking too long. Please try again later."
         
         except requests.RequestException as e:
             logger.error(f"Mistral API request failed: {str(e)}")

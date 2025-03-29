@@ -8,6 +8,7 @@ from asset_support_bot.utils.pinecone_client import PineconeClient
 from chatbot.utils.llm_client import MistralLLMClient  # or your APIBasedLLMClient if updated
 import logging
 from rest_framework.permissions import AllowAny
+import time
 
 logger = logging.getLogger(__name__)
 
@@ -16,6 +17,8 @@ class ChatbotViewSet(viewsets.ViewSet):
     
     @action(detail=False, methods=['post'])
     def query(self, request):
+        overall_start = time.perf_counter()
+
         serializer = QuerySerializer(data=request.data)
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -25,47 +28,61 @@ class ChatbotViewSet(viewsets.ViewSet):
         message_content = serializer.validated_data['message']
         conversation_id = serializer.validated_data.get('conversation_id')
         
+        timings = {}
+
         try:
-            # Get or create conversation
+            # Get or create conversation and measure time
+            conv_start = time.perf_counter()
             conversation = self._get_or_create_conversation(conversation_id, asset_id)
-            logger.info(f"conversation--------> {conversation}")
+            timings['conversation_time'] = f"{time.perf_counter() - conv_start:.2f} seconds"
             
-            # Save user message
+            # Create user message and measure time
+            user_msg_start = time.perf_counter()
             user_message = Message.objects.create(
                 conversation=conversation,
                 is_user=True,
                 content=message_content
             )
-            logger.info(f"user_message------> {user_message}")
-            
-            # Retrieve contextual chunks from Pinecone
+            timings['user_message_time'] = f"{time.perf_counter() - user_msg_start:.2f} seconds"
+
+            # Retrieve context chunks from Pinecone and measure time
+            context_start = time.perf_counter()
             context_chunks = self._retrieve_context_chunks(message_content, asset_id)
-            logger.info(f"context_chunks-----> {context_chunks}")
+            timings['context_retrieval_time'] = f"{time.perf_counter() - context_start:.2f} seconds"
             
-            # Prepare context for LLM
+            # Format context for LLM
             context = self._format_context(context_chunks)
             logger.info(f"context--------> {context}")
             
-            # Generate response using LLM
+            # Generate response using LLM and measure time
+            llm_start = time.perf_counter()
             llm_client = MistralLLMClient()
             response_content = llm_client.generate_response(
                 prompt=message_content,
                 context=context
             )
+            timings['llm_response_time'] = f"{time.perf_counter() - llm_start:.2f} seconds"
             
-            # Save assistant response
+            # Save assistant response and measure time
+            assist_msg_start = time.perf_counter()
             system_message = Message.objects.create(
                 conversation=conversation,
                 is_user=False,
                 content=response_content
             )
+            timings['assistant_message_save_time'] = f"{time.perf_counter() - assist_msg_start:.2f} seconds"
             
-            # Return the conversation messages and unique conversation key
+            overall_elapsed = time.perf_counter() - overall_start
+            timings['total_time'] = f"{overall_elapsed:.2f} seconds"
+
+            # Return the conversation messages, timings and unique conversation key
             return Response({
                 "conversation_id": conversation.id,
                 "user_message": MessageSerializer(user_message).data,
                 "assistant_message": MessageSerializer(system_message).data,
-                "context_used": bool(context_chunks)
+                "context_used": bool(context_chunks),
+                "response_time": f"{overall_elapsed:.2f} seconds",
+                "timings": timings
             })
             
         except Exception as e:

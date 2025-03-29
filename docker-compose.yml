@@ -29,9 +29,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: gunicorn asset_support_bot.wsgi:application --bind 0.0.0.0:8000 --workers 3
+    command: gunicorn asset_support_bot.wsgi:application --bind 0.0.0.0:8000 --workers 3 --timeout 120
     volumes:
       - .:/app
+      - ./media:/app/media
     env_file:
       - .env
     depends_on:
@@ -41,6 +42,22 @@ services:
         condition: service_started
     expose:
       - "8000"
+    networks:
+      - mynetwork
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: celery -A asset_support_bot worker -l info
+    volumes:
+      - .:/app
+      - ./media:/app/media  # Add this if your tasks need access to uploaded files
+    env_file:
+      - .env
+    depends_on:
+      - redis
+      - db
     networks:
       - mynetwork
 
