@@ -202,3 +202,39 @@ class PineconeClient:
         except Exception as e:
             logger.error(f"Error in debug_index_contents: {str(e)}")
             return []
+        
+    def get_fallback_chunks(self, asset_id, limit=3):
+        """
+        Retrieve fallback document chunks for an asset when the main query does not return enough results.
+        This fetches general information related to the asset from the index.
+        """
+        try:
+            asset_id_str = str(asset_id)
+            logger.info(f"Fetching fallback chunks for asset: {asset_id_str}")
+
+            # Perform a broad query with a dummy vector (zero vector) to retrieve asset-related chunks
+            fallback_results = self.index.query(
+                vector=[0] * 384,  # Zero vector for broad retrieval
+                filter={"asset_id": asset_id_str},
+                top_k=limit,
+                include_metadata=True
+            )
+
+            fallback_chunks = []
+            for match in fallback_results.matches:
+                chunk_info = {
+                    "text": match.metadata.get("text", ""),
+                    "score": match.score,
+                    "document_id": match.metadata.get("document_id", ""),
+                    "chunk_index": match.metadata.get("chunk_index", -1)
+                }
+                fallback_chunks.append(chunk_info)
+
+            logger.info(f"Fetched {len(fallback_chunks)} fallback chunks for asset {asset_id_str}")
+            return fallback_chunks
+
+        except Exception as e:
+            logger.error(f"Error retrieving fallback chunks: {str(e)}")
+            return []
+
+

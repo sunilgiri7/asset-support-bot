@@ -152,17 +152,17 @@ class ChatbotViewSet(viewsets.ViewSet):
         
         # Try using vector similarity search
         try:
-            context_chunks = pinecone_client.query_similar_chunks(
-                query_text=query,
-                asset_id=str(asset_id),
-                top_k=top_k
-            )
-            
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                future = executor.submit(pinecone_client.query_similar_chunks, 
+                                    query_text=query, 
+                                    asset_id=str(asset_id),
+                                    top_k=top_k)
+                context_chunks = future.result(timeout=5.0)  # 5-second timeout
             if context_chunks:
                 logger.info(f"Retrieved {len(context_chunks)} context chunks via vector search")
                 return context_chunks
-        except Exception as e:
-            logger.error(f"Vector search failed: {str(e)}")
+        except concurrent.futures.TimeoutError:
+            logger.error("Vector search timed out after 5 seconds")
         
         # If vector search failed or returned empty results, try fallback
         try:
