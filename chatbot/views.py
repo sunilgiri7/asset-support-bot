@@ -51,6 +51,32 @@ class ChatbotViewSet(viewsets.ViewSet):
                 content=message_content
             )
             timings['user_message_time'] = f"{time.perf_counter() - user_msg_start:.2f} seconds"
+
+            # Check if the incoming message is a basic greeting
+            basic_greetings = {"hi", "hii", "hello", "hey", "hlo", "h", "hh", "hiii"}
+            if message_content.strip().lower() in basic_greetings:
+                hardcoded_response = (
+                    '<div class="response-container" style="font-family: Arial, sans-serif; line-height: 1.6; padding: 1em;">'
+                    '<p>Hello! How can I help you today with Presage Insights? I can assist with predictive maintenance, IoT sensor data, or analytics questions.</p>'
+                    '</div>'
+                )
+                system_message = Message.objects.create(
+                    conversation=conversation,
+                    is_user=False,
+                    content=hardcoded_response
+                )
+                overall_elapsed = time.perf_counter() - overall_start
+                timings['total_time'] = f"{overall_elapsed:.2f} seconds"
+                
+                response_data = {
+                    "conversation_id": conversation.id,
+                    "user_message": MessageSerializer(user_message).data,
+                    "assistant_message": MessageSerializer(system_message).data,
+                    "context_used": False,
+                    "response_time": f"{overall_elapsed:.2f} seconds",
+                    "timings": timings
+                }
+                return Response(response_data)
             
             # Retrieve external document context from Pinecone
             context_start = time.perf_counter()
