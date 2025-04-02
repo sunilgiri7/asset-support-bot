@@ -32,19 +32,18 @@ class ChatbotViewSet(viewsets.ViewSet):
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
             
-        # Extract data
         asset_id = serializer.validated_data['asset_id']
         message_content = serializer.validated_data['message']
         conversation_id = serializer.validated_data.get('conversation_id')
         timings = {}
         
         try:
-            # Get or create conversation immediately (this rarely fails)
+            # Get or create the conversation
             conv_start = time.perf_counter()
             conversation = self._get_or_create_conversation(conversation_id, asset_id)
             timings['conversation_time'] = f"{time.perf_counter() - conv_start:.2f} seconds"
             
-            # Create user message immediately (this rarely fails)
+            # Create and save the user message
             user_msg_start = time.perf_counter()
             user_message = Message.objects.create(
                 conversation=conversation,
@@ -53,13 +52,11 @@ class ChatbotViewSet(viewsets.ViewSet):
             )
             timings['user_message_time'] = f"{time.perf_counter() - user_msg_start:.2f} seconds"
             
-            # Start context retrieval with proper error handling
+            # Retrieve external document context from Pinecone
             context_start = time.perf_counter()
             context_chunks = []
             context_error = None
-            
             try:
-                # Only attempt retrieval if the PineconeClient was initialized successfully
                 if pinecone_client is not None:
                     context_chunks = self._retrieve_context_chunks(message_content, asset_id)
                 else:
@@ -67,33 +64,38 @@ class ChatbotViewSet(viewsets.ViewSet):
             except Exception as e:
                 context_error = str(e)
                 logger.error(f"Error during context retrieval: {context_error}")
-            
             timings['context_retrieval_time'] = f"{time.perf_counter() - context_start:.2f} seconds"
             
-            # Format context for LLM or explain error
             if context_error:
-                context = f"Note: Unable to retrieve context information. Error: {context_error}"
-                logger.warning(f"Using empty context due to error: {context_error}")
+                context = f"Note: Unable to retrieve document context. Error: {context_error}"
+                logger.warning(f"Using empty document context due to error: {context_error}")
             else:
                 context = self._format_context(context_chunks)
-                logger.info(f"Using context with {len(context_chunks)} chunks")
+                logger.info(f"Using document context with {len(context_chunks)} chunks")
             
-            # Generate response using LLM and measure time
+            # Retrieve conversation summary (if any)
+            conversation_summary = conversation.summary
+            
+            # Combine the conversation summary with the user query.
+            # If a summary exists, prepend it as background.
+            combined_prompt = (
+                f"Conversation Summary:\n{conversation_summary}\n\nUser: {message_content}"
+                if conversation_summary else message_content
+            )
+            
+            # Also include the external document context as part of the final context.
+            final_context = f"Document Context:\n{context}\n\n{combined_prompt}"
+            
+            # Generate the assistant's response using the combined prompt and context.
             llm_start = time.perf_counter()
             llm_client = MistralLLMClient()
-            
-            # Append warning to prompt if context retrieval failed
-            prompt = message_content
-            if context_error:
-                prompt += "\n\nNote: I couldn't access some relevant information due to a technical issue."
-                
             response_content = llm_client.generate_response(
-                prompt=prompt,
-                context=context
+                prompt=combined_prompt,
+                context=final_context
             )
             timings['llm_response_time'] = f"{time.perf_counter() - llm_start:.2f} seconds"
             
-            # Save assistant response and measure time
+            # Save the assistant's response
             assist_msg_start = time.perf_counter()
             system_message = Message.objects.create(
                 conversation=conversation,
@@ -102,10 +104,26 @@ class ChatbotViewSet(viewsets.ViewSet):
             )
             timings['assistant_message_save_time'] = f"{time.perf_counter() - assist_msg_start:.2f} seconds"
             
+            # --- New: Summarization step ---
+            # Summarize the current turn (user query and assistant response) using the LLM.
+            summary_prompt = (
+                "Summarize the following conversation in 2-3 lines, capturing the key points:\n\n"
+                f"User: {message_content}\n"
+                f"Assistant: {response_content}"
+            )
+            summary_text = llm_client.generate_response(prompt=summary_prompt, context="")
+            
+            # Update the conversation's summary by appending or merging the new summary.
+            if conversation.summary:
+                conversation.summary += "\n" + summary_text
+            else:
+                conversation.summary = summary_text
+            conversation.save()
+            
             overall_elapsed = time.perf_counter() - overall_start
             timings['total_time'] = f"{overall_elapsed:.2f} seconds"
             
-            # Return the conversation messages, timings and diagnostics
+            # Build and return the response data
             response_data = {
                 "conversation_id": conversation.id,
                 "user_message": MessageSerializer(user_message).data,
@@ -114,8 +132,6 @@ class ChatbotViewSet(viewsets.ViewSet):
                 "response_time": f"{overall_elapsed:.2f} seconds",
                 "timings": timings
             }
-            
-            # Add error info if context retrieval failed
             if context_error:
                 response_data["context_error"] = context_error
                 
@@ -135,7 +151,12 @@ class ChatbotViewSet(viewsets.ViewSet):
             except Conversation.DoesNotExist:
                 logger.warning(f"Conversation {conversation_id} not found; creating new one.")
                 return Conversation.objects.create(asset_id=asset_id)
-        return Conversation.objects.create(asset_id=asset_id)
+        else:
+            # Try to fetch the latest conversation for the asset
+            conversation = Conversation.objects.filter(asset_id=asset_id).order_by('-updated_at').first()
+            if conversation:
+                return conversation
+            return Conversation.objects.create(asset_id=asset_id)
     
     def _retrieve_context_chunks(self, query, asset_id, top_k=3):
         """Retrieve context chunks with proper error handling."""
