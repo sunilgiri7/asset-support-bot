@@ -22,7 +22,7 @@ class GroqLLMClient:
     def _initialize(self):
         self.api_key = os.getenv('GROQ_API_KEY', settings.GROQ_API_KEY)
         self.base_url = "https://api.groq.com/openai/v1/chat/completions"
-        self.model = "gemma2-9b-it"
+        self.model = "llama3-70b-8192"
 
         if not self.api_key:
             logger.error("Groq API key is not configured")
