@@ -6,40 +6,38 @@ import re
 import time
 from django.conf import settings
 
+
 logger = logging.getLogger(__name__)
 
-class MistralLLMClient:
+
+class GroqLLMClient:
     _instance = None
-    
+
     def __new__(cls):
         if cls._instance is None:
-            cls._instance = super(MistralLLMClient, cls).__new__(cls)
+            cls._instance = super(GroqLLMClient, cls).__new__(cls)
             cls._instance._initialize()
         return cls._instance
-    
+
     def _initialize(self):
-        """Initialize Mistral API client with configuration"""
-        self.api_key = os.getenv('MISTRAL_API_KEY', settings.MISTRAL_API_KEY)
-        self.base_url = "https://api.mistral.ai/v1/chat/completions"
+        self.api_key = os.getenv('GROQ_API_KEY', settings.GROQ_API_KEY)
+        self.base_url = "https://api.groq.com/openai/v1/chat/completions"
+        self.model = "gemma2-9b-it"
+
         if not self.api_key:
-            logger.error("Mistral API key is not configured")
-            raise ValueError("Mistral API key is required")
-    
+            logger.error("Groq API key is not configured")
+            raise ValueError("Groq API key is required")
+
     def _is_html_complete(self, html):
-        """
-        A check to determine if the HTML has balanced key tags.
-        It compares the number of opening and closing tags for tags that are used in our formatted responses.
-        Also checks for incomplete last paragraph.
-        """
         # First check if the response has proper container div
         if not html.strip().startswith('<div class="response-container"'):
             logger.warning("Response missing proper container div")
             return False
-        
+
         if not html.strip().endswith('</div>'):
             logger.warning("Response missing closing div tag")
             return False
-        
+
         # Check for specific tags that should be balanced
         tags_to_check = ['div', 'p', 'h3', 'ul', 'ol', 'li', 'strong']
         for tag in tags_to_check:
@@ -48,7 +46,7 @@ class MistralLLMClient:
             if open_count != close_count:
                 logger.warning(f"Incomplete HTML detected for <{tag}>: {open_count} opening vs {close_count} closing tags.")
                 return False
-        
+
         # Check if the last paragraph appears cut off (ends without proper punctuation)
         content_text = re.sub(r'<[^>]+>', ' ', html).strip()
         if content_text and len(content_text) > 20:
@@ -56,14 +54,10 @@ class MistralLLMClient:
             if last_char not in ['.', '!', '?', ':', ';', '"', ')', ']', '}']:
                 logger.warning(f"Content appears to be cut off, last character: '{last_char}'")
                 return False
-                
+
         return True
 
     def _clean_html(self, html):
-        """
-        Clean HTML by removing newlines/extra spaces, ensure exactly ONE
-        correctly styled top-level container div.
-        """
         # Remove newlines and tabs.
         html = re.sub(r'[\n\t]+', ' ', html)
         # Remove extra spaces between tags.
@@ -77,11 +71,11 @@ class MistralLLMClient:
             # Already has container, just ensure it has our style
             if 'style=' not in html[:100]:  # Check the opening tag
                 # Add style to existing container
-                html = re.sub(r'^<div class="response-container"', 
-                            '<div class="response-container" style="font-family: Arial, sans-serif; line-height: 1.6; padding: 1em;"', 
-                            html)
+                html = re.sub(r'^<div class="response-container"',
+                             '<div class="response-container" style="font-family: Arial, sans-serif; line-height: 1.6; padding: 1em;"',
+                             html)
             return html
-            
+
         # Remove any existing top-level response container divs (case-insensitive)
         html = re.sub(r'^<div\s+class=["\']response-container["\'].*?>', '', html, flags=re.IGNORECASE | re.DOTALL).strip()
         # Remove closing div if at the end
@@ -95,10 +89,6 @@ class MistralLLMClient:
         return html_response
 
     def _repair_html(self, html):
-        """
-        Attempt to repair incomplete HTML.
-        This ensures any unbalanced tags are properly closed.
-        """
         # Start with our cleaned HTML
         repaired = html
         
@@ -106,11 +96,11 @@ class MistralLLMClient:
         if not repaired.startswith('<div class="response-container"'):
             style_attr = 'style="font-family: Arial, sans-serif; line-height: 1.6; padding: 1em;"'
             repaired = f'<div class="response-container" {style_attr}>{repaired}'
-        
+            
         # Make sure we have a closing div
         if not repaired.endswith('</div>'):
             repaired = f'{repaired}</div>'
-        
+            
         # Check and close common tags
         tags_to_check = ['p', 'h3', 'ul', 'ol', 'li', 'strong']
         for tag in tags_to_check:
@@ -123,7 +113,7 @@ class MistralLLMClient:
                 for _ in range(len(open_tags) - len(close_tags)):
                     # Add closing tag before the final </div>
                     repaired = repaired[:-6] + f'</{tag}>' + repaired[-6:]
-        
+                    
         logger.info("Repaired incomplete HTML response")
         return repaired
 
@@ -133,6 +123,7 @@ class MistralLLMClient:
         # Check for basic greetings and return a hardcoded response if applicable.
         basic_greetings = {"hi", "hii", "hello", "hey"}
         normalized_prompt = prompt.strip().lower()
+        
         if normalized_prompt in basic_greetings:
             hardcoded_response = (
                 '<div class="response-container" style="font-family: Arial, sans-serif; line-height: 1.6; padding: 1em;">'
@@ -141,12 +132,8 @@ class MistralLLMClient:
             )
             logger.info("Returning hardcoded greeting response.")
             return hardcoded_response
-        
-        try:
-            # STRUCTURED RESPONSE APPROACH
-            # Instead of trying to get the entire response at once, we'll use a structured approach
-            # to ensure we get a complete, well-formed response
             
+        try:
             # First get an outline of the response structure
             outline_response = self._get_outline(prompt, context)
             
@@ -160,35 +147,28 @@ class MistralLLMClient:
             if not self._is_html_complete(html_response):
                 logger.warning("Incomplete HTML structure detected. Attempting to repair...")
                 html_response = self._repair_html(html_response)
-            
+                
             overall_elapsed = time.perf_counter() - overall_start
             logger.info(f"Total generate_response time: {overall_elapsed:.2f} seconds.")
             
             return html_response
-        
+            
         except requests.Timeout:
-            logger.error("Mistral API request timed out")
+            logger.error("Groq API request timed out")
             return '<div class="response-container error" style="font-family: Arial, sans-serif; line-height: 1.6; padding: 1em;"><p>Sorry, the response is taking too long. Please try again later.</p></div>'
-        
         except requests.RequestException as e:
-            logger.error(f"Mistral API request failed: {str(e)}")
+            logger.error(f"Groq API request failed: {str(e)}")
             return '<div class="response-container error" style="font-family: Arial, sans-serif; line-height: 1.6; padding: 1em;"><p>I apologize, but I\'m having trouble processing your request. Please try again later.</p></div>'
-        
         except KeyError as e:
-            logger.error(f"Unexpected response format from Mistral API: {str(e)}")
+            logger.error(f"Unexpected response format from Groq API: {str(e)}")
             return '<div class="response-container error" style="font-family: Arial, sans-serif; line-height: 1.6; padding: 1em;"><p>I encountered an error while generating a response. Please try again.</p></div>'
-        
         except Exception as e:
             logger.error(f"Unexpected error in generate_response: {str(e)}")
             return '<div class="response-container error" style="font-family: Arial, sans-serif; line-height: 1.6; padding: 1em;"><p>An unexpected error occurred. Please try again.</p></div>'
 
     def _get_outline(self, prompt, context=None):
-        """
-        Get a structured outline of the response to ensure completeness.
-        This outline will serve as a guide for generating the full response.
-        """
         system_content = (
-            "You are a technical planning assistant. Create a brief outline for a response about the Presage Insights platform. "
+            "You are a technical planning assistant."
             "The outline should include 3-5 main sections with 2-3 bullet points each. "
             "Format as a simple HTML list with <h3> for main topics and <ul><li> for bullet points. "
             "Keep it concise - this is just an outline structure, not the full content."
@@ -196,19 +176,18 @@ class MistralLLMClient:
         
         if context:
             system_content += f"\n\nRelevant Context: {context}\n\nUse this context to inform your outline structure."
-        
+            
         messages = [
             {"role": "system", "content": system_content},
             {"role": "user", "content": f"Create an outline for responding to this query: {prompt}"}
         ]
         
         payload = {
-            "model": "mistral-small-latest",
+            "model": self.model,
             "messages": messages,
             "temperature": 0.3,  # Lower temperature for more consistent outline structure
-            "max_tokens": 300,   # Should be enough for an outline
-            "top_p": 0.9,
-            "response_format": {"type": "text"}
+            "max_tokens": 300,  # Should be enough for an outline
+            "top_p": 0.9
         }
         
         headers = {
@@ -217,28 +196,28 @@ class MistralLLMClient:
         }
         
         logger.info("Fetching response outline structure...")
+        
         try:
             response = requests.post(
                 self.base_url,
                 json=payload,
                 headers=headers,
-                timeout=10
+                timeout=(10, 120)
             )
+            
             response.raise_for_status()
             result = response.json()
             outline = result['choices'][0]['message']['content'].strip()
             logger.info("Successfully generated response outline.")
+            
             return outline
+            
         except Exception as e:
             logger.error(f"Error generating outline: {str(e)}")
             # Return a basic outline if outline generation fails
             return "<h3>Topic Overview</h3><ul><li>Key points</li></ul><h3>Details</h3><ul><li>Important details</li></ul><h3>Conclusion</h3><ul><li>Summary points</li></ul>"
 
     def _get_full_response(self, prompt, outline, context=None, max_length=800):
-        """
-        Generate a complete response using the outline as a guide.
-        This helps ensure the response follows a structure and is complete.
-        """
         # Domain expert instructions for the Presage Insights platform
         domain_expert_instructions = (
             "You are a domain expert AI assistant specialized in predictive maintenance and asset performance management for industrial environments, specifically for the Presage Insights platform. "
@@ -273,19 +252,18 @@ class MistralLLMClient:
         # Include context if provided
         if context:
             system_content += f"\n\nRelevant Context: {context}\n\nUse this context to inform your response."
-        
+            
         messages = [
             {"role": "system", "content": system_content},
             {"role": "user", "content": prompt}
         ]
         
         payload = {
-            "model": "mistral-small-latest",
+            "model": self.model,
             "messages": messages,
             "temperature": 0.6,
             "max_tokens": max_length,
-            "top_p": 0.8,
-            "response_format": {"type": "text"}
+            "top_p": 0.8
         }
         
         headers = {
@@ -294,16 +272,17 @@ class MistralLLMClient:
         }
         
         logger.info("Generating full response with outline guidance...")
+        
         response = requests.post(
             self.base_url,
             json=payload,
             headers=headers,
-            timeout=15
+            timeout=(10, 120)
         )
-        response.raise_for_status()
         
+        response.raise_for_status()
         result = response.json()
         full_response = result['choices'][0]['message']['content'].strip()
-        logger.info("Successfully generated full response.")
         
+        logger.info("Successfully generated full response.")
         return full_response

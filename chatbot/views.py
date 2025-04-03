@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 from chatbot.models import Conversation, Message
 from chatbot.serializers import ConversationSerializer, MessageSerializer, QuerySerializer
 from asset_support_bot.utils.pinecone_client import PineconeClient
-from chatbot.utils.llm_client import MistralLLMClient
+from chatbot.utils.llm_client import GroqLLMClient
 import logging
 from rest_framework.permissions import AllowAny
 import time
@@ -114,7 +114,7 @@ class ChatbotViewSet(viewsets.ViewSet):
             
             # Generate the assistant's response using the combined prompt and context.
             llm_start = time.perf_counter()
-            llm_client = MistralLLMClient()
+            llm_client = GroqLLMClient()
             response_content = llm_client.generate_response(
                 prompt=combined_prompt,
                 context=final_context
