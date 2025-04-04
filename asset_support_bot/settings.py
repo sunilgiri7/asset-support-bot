@@ -170,9 +170,9 @@ CELERY_RESULT_SERIALIZER = 'json'
 REDIS_HOST = os.environ.get('REDIS_HOST', 'asset-support-bot-redis-1')
 REDIS_PORT = os.environ.get('REDIS_PORT', '6379')
 # Document upload settings
-MAX_UPLOAD_SIZE = 10 * 1024 * 1024  # 10 MB
-DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024  # 10 MB
-FILE_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024  # 10 MB
+MAX_UPLOAD_SIZE = 20 * 1024 * 1024  # 20 MB
+DATA_UPLOAD_MAX_MEMORY_SIZE = 20 * 1024 * 1024  # 20 MB
+FILE_UPLOAD_MAX_MEMORY_SIZE = 20 * 1024 * 1024  # 20 MB
 
 # LLM Settings
 LLM_MODEL_ID = os.getenv('LLM_MODEL_ID', 'mistralai/Mistral-7B-Instruct-v0.2')

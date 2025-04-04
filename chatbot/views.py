@@ -3,7 +3,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from chatbot.models import Conversation, Message
-from chatbot.serializers import ConversationSerializer, MessageSerializer, QuerySerializer
+from chatbot.serializers import ConversationSerializer, MessagePairSerializer, MessageSerializer, QuerySerializer
 from asset_support_bot.utils.pinecone_client import PineconeClient
 from chatbot.utils.llm_client import GroqLLMClient
 import logging
@@ -264,12 +264,99 @@ class ChatbotViewSet(viewsets.ViewSet):
         
         if conversation_id:
             conversation = get_object_or_404(Conversation, id=conversation_id)
-            serializer = ConversationSerializer(conversation)
+            # Get all messages from this conversation
+            messages = Message.objects.filter(conversation=conversation).order_by('created_at')
+            
+            # Group messages into user-system pairs
+            message_pairs = []
+            user_message = None
+            
+            for message in messages:
+                if message.is_user:
+                    # If we already have a user message stored, add it as a standalone pair
+                    if user_message:
+                        message_pairs.append({
+                            'conversation': conversation,
+                            'user_message': user_message,
+                            'system_message': None
+                        })
+                    user_message = message
+                else:  # System message
+                    if user_message:
+                        # Create a pair with the stored user message and current system message
+                        message_pairs.append({
+                            'conversation': conversation,
+                            'user_message': user_message,
+                            'system_message': message
+                        })
+                        user_message = None
+                    else:
+                        # System message without a preceding user message
+                        message_pairs.append({
+                            'conversation': conversation,
+                            'user_message': None,
+                            'system_message': message
+                        })
+            
+            # Handle any remaining user message
+            if user_message:
+                message_pairs.append({
+                    'conversation': conversation,
+                    'user_message': user_message,
+                    'system_message': None
+                })
+            
+            serializer = MessagePairSerializer(message_pairs, many=True)
             return Response(serializer.data)
+        
         elif asset_id:
             conversations = Conversation.objects.filter(asset_id=asset_id).order_by('-updated_at')
-            serializer = ConversationSerializer(conversations, many=True)
+            all_message_pairs = []
+            
+            for conversation in conversations:
+                messages = Message.objects.filter(conversation=conversation).order_by('created_at')
+                
+                # Group messages into user-system pairs
+                user_message = None
+                
+                for message in messages:
+                    if message.is_user:
+                        # If we already have a user message stored, add it as a standalone pair
+                        if user_message:
+                            all_message_pairs.append({
+                                'conversation': conversation,
+                                'user_message': user_message,
+                                'system_message': None
+                            })
+                        user_message = message
+                    else:  # System message
+                        if user_message:
+                            # Create a pair with the stored user message and current system message
+                            all_message_pairs.append({
+                                'conversation': conversation,
+                                'user_message': user_message,
+                                'system_message': message
+                            })
+                            user_message = None
+                        else:
+                            # System message without a preceding user message
+                            all_message_pairs.append({
+                                'conversation': conversation,
+                                'user_message': None,
+                                'system_message': message
+                            })
+                
+                # Handle any remaining user message
+                if user_message:
+                    all_message_pairs.append({
+                        'conversation': conversation,
+                        'user_message': user_message,
+                        'system_message': None
+                    })
+            
+            serializer = MessagePairSerializer(all_message_pairs, many=True)
             return Response(serializer.data)
+        
         else:
             return Response({"error": "Please provide either conversation_id or asset_id as query parameters."},
-                          status=status.HTTP_400_BAD_REQUEST)
+                        status=status.HTTP_400_BAD_REQUEST)

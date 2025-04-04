@@ -10,7 +10,7 @@ class MessageSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'created_at']
 
 class ConversationSerializer(serializers.ModelSerializer):
-    """Serializer for conversations"""
+    """Original serializer for conversations"""
     messages = MessageSerializer(many=True, read_only=True)
     
     class Meta:
@@ -23,3 +23,33 @@ class QuerySerializer(serializers.Serializer):
     asset_id = serializers.CharField(required=True)
     message = serializers.CharField(required=True)
     conversation_id = serializers.UUIDField(required=False)
+
+class MessagePairSerializer(serializers.Serializer):
+    """Serializer for a pair of user message and system response"""
+    id = serializers.UUIDField(source='conversation.id')
+    asset_id = serializers.CharField(source='conversation.asset_id')
+    messages = serializers.SerializerMethodField()
+    created_at = serializers.DateTimeField(source='conversation.created_at')
+    updated_at = serializers.DateTimeField(source='conversation.updated_at')
+
+    def get_messages(self, obj):
+        user_message = obj.get('user_message')
+        system_message = obj.get('system_message')
+        
+        messages = []
+        if user_message:
+            messages.append({
+                'id': str(user_message.id),
+                'is_user': user_message.is_user,
+                'content': user_message.content,
+                'created_at': user_message.created_at
+            })
+        if system_message:
+            messages.append({
+                'id': str(system_message.id),
+                'is_user': system_message.is_user,
+                'content': system_message.content,
+                'created_at': system_message.created_at
+            })
+        
+        return messages
