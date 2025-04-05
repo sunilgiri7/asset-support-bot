@@ -236,5 +236,37 @@ class PineconeClient:
         except Exception as e:
             logger.error(f"Error retrieving fallback chunks: {str(e)}")
             return []
+        
+    def delete_document(self, document_id: str, asset_id: str):
+        """
+        Delete all vectors associated with a given document by first fetching
+        all vectors for the asset, filtering by document_id, and then deleting
+        by the vector IDs.
+        """
+        try:
+            # Query all vectors for the asset.
+            results = self.index.query(
+                vector=[0] * 384,  # Dummy vector for broad retrieval.
+                filter={"asset_id": str(asset_id)},
+                top_k=1000,  # Adjust if needed.
+                include_metadata=True
+            )
+            # Extract the vector IDs where metadata.document_id matches.
+            ids_to_delete = [
+                match.id
+                for match in results.matches
+                if match.metadata.get("document_id") == document_id
+            ]
+            
+            if ids_to_delete:
+                # Delete vectors using their IDs (do not use metadata filtering).
+                self.index.delete(ids=ids_to_delete)
+                logger.info(f"Deleted vectors for document {document_id} from Pinecone")
+            else:
+                logger.warning(f"No vectors found for document {document_id}")
+            return True
+        except Exception as e:
+            logger.error(f"Error deleting document {document_id}: {str(e)}")
+            return False
 
 

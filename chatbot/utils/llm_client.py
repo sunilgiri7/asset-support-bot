@@ -121,7 +121,7 @@ class GroqLLMClient:
         overall_start = time.perf_counter()
         
         # Check for basic greetings and return a hardcoded response if applicable.
-        basic_greetings = {"hi", "hii", "hello", "hey"}
+        basic_greetings = {"hi", "hii", "hello", "hey", "hlo", "h", "hh", "hiii", "helloo", "helo", "hilo", "hellooo"}
         normalized_prompt = prompt.strip().lower()
         
         if normalized_prompt in basic_greetings:
@@ -142,6 +142,7 @@ class GroqLLMClient:
             
             # Clean up and check the HTML structure
             html_response = self._clean_html(full_response)
+            html_response = self._resize_headings(html_response)
             
             # Check if the HTML is complete, if not, attempt to repair it
             if not self._is_html_complete(html_response):
@@ -170,7 +171,7 @@ class GroqLLMClient:
         system_content = (
             "You are a technical planning assistant."
             "The outline should include 3-5 main sections with 2-3 bullet points each. "
-            "Format as a simple HTML list with <h3> for main topics and <ul><li> for bullet points. "
+            "Format as a simple HTML list with <h6> for main topics and <ul><li> for bullet points. "  # Changed from h3 to h6
             "Keep it concise - this is just an outline structure, not the full content."
         )
         
@@ -215,7 +216,7 @@ class GroqLLMClient:
         except Exception as e:
             logger.error(f"Error generating outline: {str(e)}")
             # Return a basic outline if outline generation fails
-            return "<h3>Topic Overview</h3><ul><li>Key points</li></ul><h3>Details</h3><ul><li>Important details</li></ul><h3>Conclusion</h3><ul><li>Summary points</li></ul>"
+            return "<h6>Topic Overview</h6><ul><li>Key points</li></ul><h6>Details</h6><ul><li>Important details</li></ul><h6>Conclusion</h6><ul><li>Summary points</li></ul>"
 
     def _get_full_response(self, prompt, outline, context=None, max_length=800):
         # Domain expert instructions for the Presage Insights platform
@@ -237,7 +238,7 @@ class GroqLLMClient:
             "CRITICAL FORMATTING REQUIREMENTS:\n"
             "1. Format your ENTIRE response as clean HTML with NO markdown.\n"
             "2. Start with <div class='response-container'> and end with </div>\n"
-            "3. Use appropriate HTML tags: <p> for paragraphs, <h3> for headings, <strong> for emphasis\n"
+            "3. Use appropriate HTML tags: <p> for paragraphs, <h6> for headings, <strong> for emphasis\n"  # Changed from h3 to h6
             "4. Use proper HTML lists: <ul><li> for bullet points and <ol><li> for numbered lists\n"
             "5. For nested lists, place the entire <ul> or <ol> inside the parent <li> element\n"
             "6. DO NOT exceed the token limit - prioritize completing all sections over verbosity\n"
@@ -286,3 +287,55 @@ class GroqLLMClient:
         
         logger.info("Successfully generated full response.")
         return full_response
+    
+    def _resize_headings(self, html):
+        # Replace any h1, h2, h3, h4 tags with h6
+        for i in range(1, 5):
+            html = re.sub(f'<h{i}([^>]*)>', '<h6\\1>', html)
+            html = re.sub(f'</h{i}>', '</h6>', html)
+        return html
+    
+
+    def query_llm(self, messages, temperature=0.5, max_tokens=800, top_p=0.9):
+        payload = {
+            "model": self.model,
+            "messages": messages,
+            "temperature": temperature,
+            "max_tokens": max_tokens,
+            "top_p": top_p
+        }
+
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {self.api_key}"
+        }
+
+        logger.info("Querying Groq LLM directly...")
+
+        try:
+            response = requests.post(
+                self.base_url,
+                json=payload,
+                headers=headers,
+                timeout=(10, 120)
+            )
+
+            response.raise_for_status()
+            result = response.json()
+            reply = result['choices'][0]['message']['content'].strip()
+
+            logger.info("Received response from LLM.")
+            return reply
+
+        except requests.Timeout:
+            logger.error("Groq LLM request timed out")
+            return "Request timed out. Please try again."
+        except requests.RequestException as e:
+            logger.error(f"Groq LLM request failed: {str(e)}")
+            return "Request failed. Please check logs."
+        except KeyError as e:
+            logger.error(f"Unexpected response format: {str(e)}")
+            return "Unexpected error occurred while parsing the LLM response."
+        except Exception as e:
+            logger.error(f"General error in query_llm: {str(e)}")
+            return "Unexpected error. Please try again later."

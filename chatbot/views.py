@@ -1,16 +1,17 @@
+import json
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from chatbot.models import Conversation, Message
-from chatbot.serializers import ConversationSerializer, MessagePairSerializer, MessageSerializer, QuerySerializer
+from chatbot.serializers import ConversationSerializer, MessagePairSerializer, MessageSerializer, QuerySerializer, VibrationAnalysisInputSerializer
 from asset_support_bot.utils.pinecone_client import PineconeClient
 from chatbot.utils.llm_client import GroqLLMClient
 import logging
 from rest_framework.permissions import AllowAny
 import time
 import concurrent.futures
-import threading
+from rest_framework.decorators import api_view
 
 logger = logging.getLogger(__name__)
 
@@ -53,7 +54,7 @@ class ChatbotViewSet(viewsets.ViewSet):
             timings['user_message_time'] = f"{time.perf_counter() - user_msg_start:.2f} seconds"
 
             # Check if the incoming message is a basic greeting
-            basic_greetings = {"hi", "hii", "hello", "hey", "hlo", "h", "hh", "hiii"}
+            basic_greetings = {"hi", "hii", "hello", "hey", "hlo", "h", "hh", "hiii", "helloo", "helo", "hilo", "hellooo"}
             if message_content.strip().lower() in basic_greetings:
                 hardcoded_response = (
                     '<div class="response-container" style="font-family: Arial, sans-serif; line-height: 1.6; padding: 1em;">'
@@ -360,3 +361,62 @@ class ChatbotViewSet(viewsets.ViewSet):
         else:
             return Response({"error": "Please provide either conversation_id or asset_id as query parameters."},
                         status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+def analyze_vibration(request):
+    """
+    Accepts time series data and returns LLM-based vibration condition analysis.
+    """
+    serializer = VibrationAnalysisInputSerializer(data=request.data)
+    if serializer.is_valid():
+        data = serializer.validated_data
+
+        prompt = f"""
+You are a level 3 vibration analyst.
+Perform a comprehensive analysis of the asset's condition using the full set of provided data.
+Return your analysis as a structured JSON object with the following keys:
+- "overview": A brief summary of the asset's condition.
+- "time_domain_analysis": Detailed analysis of the acceleration and velocity time waveforms.
+- "frequency_domain_analysis": Analysis of the harmonics and cross PSD data.
+- "bearing_faults": Analysis of the bearing fault frequencies.
+- "recommendations": A list of actionable maintenance recommendations.
+
+Here is the data:
+{{
+  "asset_type": "{data['asset_type']}",
+  "running_RPM": {data['running_RPM']},
+  "bearing_fault_frequencies": {data['bearing_fault_frequencies']},
+  "acceleration_time_waveform": {data['acceleration_time_waveform']},
+  "velocity_time_waveform": {data['velocity_time_waveform']},
+  "harmonics": {data['harmonics']},
+  "cross_PSD": {data['cross_PSD']}
+}}
+
+**Instructions**:
+- Provide a concise "overview" of the overall condition.
+- In "time_domain_analysis", include metrics and any concerning trends from the acceleration and velocity time waveforms.
+- In "frequency_domain_analysis", detail the implications of the harmonics and cross PSD data.
+- In "bearing_faults", mention whether there are any signs of bearing damage.
+- In "recommendations", list clear maintenance actions.
+- **Return only valid JSON** without any additional markdown or HTML.
+"""
+
+        # Create an instance of GroqLLMClient and then call query_llm
+        client = GroqLLMClient()
+        response_text = client.query_llm([
+            {"role": "user", "content": prompt}
+        ])
+        
+        # Try to parse the response_text as JSON
+        try:
+            analysis_data = json.loads(response_text)
+        except Exception as e:
+            # If parsing fails, return the raw response along with an error message.
+            analysis_data = {
+                "error": "Failed to parse LLM response into JSON.",
+                "raw_response": response_text
+            }
+        return Response({"analysis": analysis_data})
+
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

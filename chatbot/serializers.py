@@ -53,3 +53,12 @@ class MessagePairSerializer(serializers.Serializer):
             })
         
         return messages
+    
+class VibrationAnalysisInputSerializer(serializers.Serializer):
+    asset_type = serializers.CharField()
+    running_RPM = serializers.FloatField()
+    bearing_fault_frequencies = serializers.DictField(child=serializers.FloatField())
+    acceleration_time_waveform = serializers.DictField()
+    velocity_time_waveform = serializers.DictField()
+    harmonics = serializers.DictField()
+    cross_PSD = serializers.DictField()

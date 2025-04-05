@@ -32,15 +32,25 @@ class DocumentViewSet(viewsets.ModelViewSet):
         
         return document
     
-    def perform_destroy(self, instance):
-        """Delete document from database and vector store"""
+    def destroy(self, request, *args, **kwargs):
+        """Override destroy to delete document from DB and vector store and return custom response."""
+        instance = self.get_object()
         try:
-            # Delete from vector store first
+            # Delete embeddings from Pinecone using document id and asset id.
             pinecone_client = PineconeClient()
-            pinecone_client.delete_document(str(instance.id))
+            if not pinecone_client.delete_document(str(instance.id), instance.asset_id):
+                return Response(
+                    {"error": "Failed to delete document embeddings from Pinecone"},
+                    status=status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
             
-            # Then delete the model instance
+            # Then delete the model instance from the database.
             instance.delete()
+            
+            return Response(
+                {"success": "Document deleted successfully."},
+                status=status.HTTP_200_OK
+            )
         except Exception as e:
             return Response(
                 {"error": f"Failed to delete document: {str(e)}"},
