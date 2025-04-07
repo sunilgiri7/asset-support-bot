@@ -268,5 +268,3 @@ class PineconeClient:
         except Exception as e:
             logger.error(f"Error deleting document {document_id}: {str(e)}")
             return False
-
-

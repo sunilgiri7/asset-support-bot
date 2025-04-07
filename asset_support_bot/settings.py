@@ -179,7 +179,8 @@ LLM_MODEL_ID = os.getenv('LLM_MODEL_ID', 'mistralai/Mistral-7B-Instruct-v0.2')
 EMBEDDING_MODEL_ID = os.getenv('EMBEDDING_MODEL_ID', 'all-MiniLM-L6-v2')
 HF_ACCESS_TOKEN = os.getenv('HF_ACCESS_TOKEN', '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')
 MISTRAL_API_KEY = os.getenv('MISTRAL_API_KEY', 'VrqhfV38Mxr8T90JzfEZ0cjINtm6Th5o')
-GROQ_API_KEY = os.getenv('GROQ_API_KEY', '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')
+# GROQ_API_KEY = os.getenv('GROQ_API_KEY', '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')
+GROQ_API_KEY = os.getenv('GROQ_API_KEY', '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')
 
 # Pinecone settings
 PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
