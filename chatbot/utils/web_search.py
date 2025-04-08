@@ -8,16 +8,6 @@ from bs4 import BeautifulSoup
 logger = logging.getLogger('chatbot')
 
 def web_search(query, max_results=3):
-    """
-    Perform a web search using multiple methods and return formatted results.
-    
-    Args:
-        query (str): The search query
-        max_results (int): Maximum number of results to return
-        
-    Returns:
-        str: HTML formatted search results or empty string if no results/error
-    """
     logger.info(f"Starting web search for query: '{query}'")
     print(f"Starting web search for query: '{query}'")
     
@@ -28,7 +18,7 @@ def web_search(query, max_results=3):
     # Uncomment this section if you have a SerpAPI key
     try:
         serpapi_key = "a64064c88af685be70853dbb69756ac644bc9fde371a4771b5780f325762b5fc"  # Replace with your actual key
-        if serpapi_key and serpapi_key != "a64064c88af685be70853dbb69756ac644bc9fde371a4771b5780f325762b5fc":
+        if serpapi_key:
             logger.info("Trying SerpAPI search")
             params = {
                 "engine": "google",

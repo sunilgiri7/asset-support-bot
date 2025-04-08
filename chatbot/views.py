@@ -1,4 +1,5 @@
 import json
+import re
 import sys
 import time
 import concurrent.futures
@@ -16,6 +17,7 @@ from asset_support_bot.utils.pinecone_client import PineconeClient
 from chatbot.utils.llm_client import GroqLLMClient
 from rest_framework.permissions import AllowAny
 from chatbot.utils.web_search import web_search
+import requests
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -45,6 +47,7 @@ class ChatbotViewSet(viewsets.ViewSet):
         asset_id = serializer.validated_data['asset_id']
         message_content = serializer.validated_data['message']
         conversation_id = serializer.validated_data.get('conversation_id')
+        use_search = serializer.validated_data.get('use_search', False)
         timings = {}
 
         try:
@@ -87,60 +90,38 @@ class ChatbotViewSet(viewsets.ViewSet):
                     "timings": timings
                 }
                 return Response(response_data)
-
-            # Retrieve external document context from Pinecone
-            context_start = time.perf_counter()
-            context_chunks = []
-            context_error = None
-            try:
-                if pinecone_client is not None:
-                    context_chunks = self._retrieve_context_chunks(message_content, asset_id)
-                else:
-                    context_error = "PineconeClient initialization failed"
-            except Exception as e:
-                context_error = str(e)
-                logger.error(f"Error during context retrieval: {context_error}")
-            timings['context_retrieval_time'] = f"{time.perf_counter() - context_start:.2f} seconds"
-
-            if context_error:
-                document_context = f"Note: Unable to retrieve document context. Error: {context_error}"
-                logger.warning(f"Using empty document context due to error: {context_error}")
-            else:
-                document_context = self._format_context(context_chunks)
-                logger.info(f"Using document context with {len(context_chunks)} chunks")
-
-            # Build conversation context using sliding window and summarization
-            llm_client = GroqLLMClient()
-            conversation_context = self._build_context_prompt(conversation, llm_client)
-
-            # Check if the user has toggled web search functionality.
-            use_search = serializer.validated_data.get('use_search', False)
-            web_search_results = ""
+            
+            action_type = None
+            
+            # If use_search is True, directly set action type to web_search
             if use_search:
-                logger.info(f"Web search enabled for query: '{message_content}'")
-                print(f"Web search enabled for query: '{message_content}'")
-                # Use the new web_search function instead of duckduckgo_search
-                web_search_results = web_search(message_content)
-                if web_search_results:
-                    logger.info("Web search results found and formatted successfully")
-                    print("Web search results found and formatted successfully")
-                else:
-                    logger.info("No web search results were found or an error occurred")
-                    print("No web search results were found or an error occurred")
+                action_type = "web_search"
+                logger.info("Using web search as specified by use_search flag")
+                timings['action_determination_time'] = "0.00 seconds (skipped - using web_search)"
+            else:
+                # Step 1: Determine the appropriate action based on the user query
+                action_start = time.perf_counter()
+                action_type = self._determine_action_type(message_content)
+                logger.info("action_type----------> %s", action_type)
+                timings['action_determination_time'] = f"{time.perf_counter() - action_start:.2f} seconds"
+                logger.info(f"Determined action type: {action_type}")
 
-            # Combine all context: document context, conversation context, and current user message.
-            combined_prompt = f"{document_context}\n\nConversation Context:\n{conversation_context}\n\nUser: {message_content}"
-            if web_search_results:
-                logger.info("Adding web search results to combined prompt")
-                combined_prompt += f"{web_search_results}\n\n"
+            # Step 2: Handle the query based on the determined action type
+            response_content = ""
 
-            # Generate the assistant's response using the combined prompt and context.
-            llm_start = time.perf_counter()
-            response_content = llm_client.generate_response(
-                prompt=message_content,  # original prompt if needed for LLM reference
-                context=combined_prompt
-            )
-            timings['llm_response_time'] = f"{time.perf_counter() - llm_start:.2f} seconds"
+            if action_type == "document_query":
+                # Use existing document retrieval flow
+                response_content = self._handle_document_query(message_content, asset_id, conversation, timings)
+            elif action_type == "fetch_data":
+                # Fetch data from API and analyze it
+                response_content = self._handle_fetch_data(asset_id, message_content, timings)
+            elif action_type == "web_search":
+                # Use web search functionality
+                response_content = self._handle_web_search(message_content, timings)
+            else:
+                # Default to document query if action type is not recognized
+                logger.warning(f"Unrecognized action type: {action_type}. Defaulting to document query.")
+                response_content = self._handle_document_query(message_content, asset_id, conversation, timings)
 
             # Save the assistant's response
             assist_msg_start = time.perf_counter()
@@ -151,7 +132,8 @@ class ChatbotViewSet(viewsets.ViewSet):
             )
             timings['assistant_message_save_time'] = f"{time.perf_counter() - assist_msg_start:.2f} seconds"
 
-            # --- New: Summarization step for conversation history ---
+            # Summarize conversation for history management
+            llm_client = GroqLLMClient()
             summary_prompt = (
                 "Summarize the following conversation in 2-3 lines, capturing the key points:\n\n"
                 f"User: {message_content}\n"
@@ -159,8 +141,7 @@ class ChatbotViewSet(viewsets.ViewSet):
             )
             new_summary = llm_client.generate_response(prompt=summary_prompt, context="")
 
-            # Update the conversation's summary.
-            # Here, you can choose whether to replace or append.
+            # Update the conversation's summary
             if conversation.summary:
                 conversation.summary += "\n" + new_summary
             else:
@@ -175,12 +156,10 @@ class ChatbotViewSet(viewsets.ViewSet):
                 "conversation_id": conversation.id,
                 "user_message": MessageSerializer(user_message).data,
                 "assistant_message": MessageSerializer(system_message).data,
-                "context_used": bool(context_chunks),
+                "action_type": action_type,
                 "response_time": f"{overall_elapsed:.2f} seconds",
                 "timings": timings
             }
-            if context_error:
-                response_data["context_error"] = context_error
 
             return Response(response_data)
 
@@ -191,6 +170,243 @@ class ChatbotViewSet(viewsets.ViewSet):
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
+    def _determine_action_type(self, user_query):
+        llm_client = GroqLLMClient()
+        json_format_str = '{"action": "selected_action"}'
+        
+        # Enhanced prompt with explicit decision rules and examples.
+        prompt = f"""
+    You are a smart task routing bot. Your job is to analyze the user's query and decide the best method to respond based on its semantic context.
+    Your available actions are:
+
+    1. "document_query": Use this action when the query asks for information that can be answered from internal documentation, such as configuration instructions, technical manuals, or API parameter details.
+    - Example: "How do I configure the logging system?" or "What are the parameters for the API call?"
+
+    2. "fetch_data": Use this action when the query is asking for specific, structured data that should be fetched from an API response. Typically, these queries involve numeric or analytic data, such as measurements or detailed technical reports.
+    - Example: "Get me the current vibration analysis data for asset X." or "What are the latest sensor readings?"
+
+    3. "web_search": Use this action when the query requires current or trending information from the web, especially when it involves recent or temporal events.
+    - Example: "Provide the details of yesterday's IPL match." or "What is the latest news on technology trends?"
+
+    Instructions:
+    - Carefully analyze the query and consider any temporal cues (such as "yesterday", "latest") or event-related keywords.
+    - Choose a single action that best fits the query's intent.
+    - Return only a valid JSON object in exactly this format: {json_format_str}
+    - Do NOT include any explanation or HTML. Just return the JSON.
+
+    User Query: "{user_query}"
+
+    where "selected_action" must be one of "document_query", "fetch_data", or "web_search".
+
+    User Query: "{user_query}"
+    """
+
+        try:
+            response = llm_client.generate_response(prompt=prompt, context="")
+            logger.info("Action determination response: %s", response)
+
+            # 🔍 Try to extract raw JSON using regex
+            match = re.search(r'\{.*?"action"\s*:\s*"(document_query|fetch_data|web_search)".*?\}', response)
+            if match:
+                action_json_str = match.group(0)
+                response_json = json.loads(action_json_str)
+                action = response_json.get('action')
+                if action in ["document_query", "fetch_data", "web_search"]:
+                    return action
+                else:
+                    logger.warning("Invalid action type received: %s. Defaulting to document_query.", action)
+                    return "document_query"
+            else:
+                logger.error("No valid action JSON found in response: %s", response)
+                return "document_query"
+
+        except Exception as e:
+            logger.error("Error in action determination: %s", str(e))
+            return "document_query"
+
+    def _handle_document_query(self, message_content, asset_id, conversation, timings):
+        """Handle queries that require document retrieval from Pinecone."""
+        logger.info(f"Handling document query: {message_content}")
+        
+        # Retrieve external document context from Pinecone
+        context_start = time.perf_counter()
+        context_chunks = []
+        context_error = None
+        try:
+            if pinecone_client is not None:
+                context_chunks = self._retrieve_context_chunks(message_content, asset_id)
+            else:
+                context_error = "PineconeClient initialization failed"
+        except Exception as e:
+            context_error = str(e)
+            logger.error(f"Error during context retrieval: {context_error}")
+        timings['context_retrieval_time'] = f"{time.perf_counter() - context_start:.2f} seconds"
+
+        if context_error:
+            document_context = f"Note: Unable to retrieve document context. Error: {context_error}"
+            logger.warning(f"Using empty document context due to error: {context_error}")
+        else:
+            document_context = self._format_context(context_chunks)
+            logger.info(f"Using document context with {len(context_chunks)} chunks")
+
+        # Build conversation context using sliding window and summarization
+        llm_client = GroqLLMClient()
+        conversation_context = self._build_context_prompt(conversation, llm_client)
+
+        combined_prompt = (
+            f"{document_context}\n\nConversation Context:\n{conversation_context}\n\nUser: {message_content}"
+        )
+
+        # Generate the assistant's response
+        llm_start = time.perf_counter()
+        response_content = llm_client.generate_response(
+            prompt=message_content,
+            context=combined_prompt
+        )
+        timings['llm_response_time'] = f"{time.perf_counter() - llm_start:.2f} seconds"
+        
+        return response_content
+
+    def _handle_fetch_data(self, asset_id, message_content, timings):
+        """Handle queries that require fetching and analyzing data."""
+        logger.info(f"Handling fetch data request for asset_id: {asset_id}")
+        
+        # Step 1: Fetch data from API using asset_id
+        api_start = time.perf_counter()
+        try:
+            # You would replace this URL with your actual API endpoint
+            api_url = f"/api/asset-data/{asset_id}/"
+            response = requests.get(api_url)
+            
+            if response.status_code == 200:
+                asset_data = response.json()
+                logger.info(f"Successfully fetched data for asset: {asset_id}")
+                
+                # Step 2: Analyze the data using analyze_vibration function
+                analysis_data = {
+                    "asset_type": asset_data.get("asset_type", "Unknown"),
+                    "running_RPM": asset_data.get("running_RPM", 0),
+                    "bearing_fault_frequencies": asset_data.get("bearing_fault_frequencies", {}),
+                    "acceleration_time_waveform": asset_data.get("acceleration_time_waveform", {}),
+                    "velocity_time_waveform": asset_data.get("velocity_time_waveform", {}),
+                    "harmonics": asset_data.get("harmonics", {}),
+                    "cross_PSD": asset_data.get("cross_PSD", {})
+                }
+                
+                # Create serializer with the data
+                serializer = VibrationAnalysisInputSerializer(data=analysis_data)
+                if serializer.is_valid():
+                    # This would call your existing analyze_vibration function
+                    analysis_result = self._perform_vibration_analysis(serializer.validated_data)
+                    
+                    # Format the response
+                    llm_client = GroqLLMClient()
+                    formatting_prompt = f"""
+                    Format the following vibration analysis results into a user-friendly HTML response.
+                    Make it organized with headings, bullet points, and highlight important findings.
+                    Include the asset ID: {asset_id} in your response.
+                    
+                    Analysis data: {json.dumps(analysis_result)}
+                    
+                    User query: {message_content}
+                    """
+                    formatted_response = llm_client.generate_response(prompt=formatting_prompt, context="")
+                    timings['api_fetch_and_analysis_time'] = f"{time.perf_counter() - api_start:.2f} seconds"
+                    return formatted_response
+                else:
+                    error_msg = f"Invalid data format for vibration analysis: {serializer.errors}"
+                    logger.error(error_msg)
+                    return f"<div class='error-message'>Unable to analyze data for asset {asset_id}. The data format is invalid.</div>"
+            else:
+                error_msg = f"Failed to fetch data for asset {asset_id}. Status code: {response.status_code}"
+                logger.error(error_msg)
+                return f"<div class='error-message'>Unable to fetch data for asset {asset_id}. Please check if the asset ID is correct.</div>"
+                
+        except Exception as e:
+            error_msg = f"Error fetching or analyzing data for asset {asset_id}: {str(e)}"
+            logger.error(error_msg)
+            timings['api_fetch_and_analysis_time'] = f"{time.perf_counter() - api_start:.2f} seconds"
+            return f"<div class='error-message'>An error occurred while processing data for asset {asset_id}: {str(e)}</div>"
+
+    def _perform_vibration_analysis(self, data):
+        """Call the existing analyze_vibration function to analyze the data."""
+        prompt = f"""
+You are a level 3 vibration analyst.
+Perform a comprehensive analysis of the asset's condition using the full set of provided data.
+Return your analysis as a structured JSON object with the following keys:
+- "overview": A brief summary of the asset's condition.
+- "time_domain_analysis": Detailed analysis of the acceleration and velocity time waveforms.
+- "frequency_domain_analysis": Analysis of the harmonics and cross PSD data.
+- "bearing_faults": Analysis of the bearing fault frequencies.
+- "recommendations": A list of actionable maintenance recommendations.
+
+Here is the data:
+{{
+  "asset_type": "{data['asset_type']}",
+  "running_RPM": {data['running_RPM']},
+  "bearing_fault_frequencies": {data['bearing_fault_frequencies']},
+  "acceleration_time_waveform": {data['acceleration_time_waveform']},
+  "velocity_time_waveform": {data['velocity_time_waveform']},
+  "harmonics": {data['harmonics']},
+  "cross_PSD": {data['cross_PSD']}
+}}
+
+**Instructions**:
+- Provide a concise "overview" of the overall condition.
+- In "time_domain_analysis", include metrics and any concerning trends from the acceleration and velocity time waveforms.
+- In "frequency_domain_analysis", detail the implications of the harmonics and cross PSD data.
+- In "bearing_faults", mention whether there are any signs of bearing damage.
+- In "recommendations", list clear maintenance actions.
+- **Return only valid JSON** without any additional markdown or HTML.
+"""
+        client = GroqLLMClient()
+        response_text = client.query_llm([
+            {"role": "user", "content": prompt}
+        ])
+
+        try:
+            analysis_data = json.loads(response_text)
+            return analysis_data
+        except Exception as e:
+            logger.error(f"Failed to parse vibration analysis response: {str(e)}")
+            return {
+                "error": "Failed to parse analysis results",
+                "raw_response": response_text
+            }
+
+    def _handle_web_search(self, message_content, timings):
+        """Handle queries that require web search."""
+        logger.info(f"Handling web search for query: {message_content}")
+        
+        search_start = time.perf_counter()
+        # Use the existing web_search function
+        web_search_results = web_search(message_content)
+        
+        if web_search_results:
+            logger.info("Web search results found")
+            combined_prompt = (
+                f"Web Search Results:\n{web_search_results}\n\n"
+                f"User Query:\n{message_content}\n\n"
+                f"Please provide a comprehensive response to the user's query using the web search results."
+            )
+        else:
+            logger.info("No web search results found")
+            combined_prompt = (
+                f"User Query:\n{message_content}\n\n"
+                f"No relevant web search results were found. Please provide the best response based on your knowledge."
+            )
+        
+        # Generate response using LLM
+        llm_client = GroqLLMClient()
+        response_content = llm_client.generate_response(
+            prompt=message_content,
+            context=combined_prompt
+        )
+        
+        timings['web_search_time'] = f"{time.perf_counter() - search_start:.2f} seconds"
+        return response_content
+
+    # Keep existing helper methods
     def _get_or_create_conversation(self, conversation_id, asset_id):
         if conversation_id:
             try:
@@ -256,8 +472,6 @@ class ChatbotViewSet(viewsets.ViewSet):
             f"Context Chunk {i+1} (Relevance: {chunk['score']:.2f}):\n{chunk['text']}"
             for i, chunk in enumerate(sorted_chunks)
         ])
-
-    # --- New Helper Functions for Context Management ---
 
     def _build_conversation_context(self, conversation, max_recent=10):
         """
