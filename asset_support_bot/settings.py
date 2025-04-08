@@ -190,3 +190,19 @@ PINECONE_INDEX_NAME = os.getenv('PINECONE_INDEX_NAME', 'asset-support-index')
 # Document processing
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 200
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'chatbot': {  # Match this with the logger name in the code
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
+}

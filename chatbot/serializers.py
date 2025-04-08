@@ -23,6 +23,7 @@ class QuerySerializer(serializers.Serializer):
     asset_id = serializers.CharField(required=True)
     message = serializers.CharField(required=True)
     conversation_id = serializers.UUIDField(required=False)
+    use_search = serializers.BooleanField(required=False, default=False)
 
 class MessagePairSerializer(serializers.Serializer):
     """Serializer for a pair of user message and system response"""
