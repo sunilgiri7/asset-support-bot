@@ -16,8 +16,10 @@ from chatbot.serializers import (
 from asset_support_bot.utils.pinecone_client import PineconeClient
 from chatbot.utils.llm_client import GroqLLMClient
 from rest_framework.permissions import AllowAny
+from chatbot.utils.mistral_client import MistralLLMClient
 from chatbot.utils.web_search import web_search
 import requests
+from django.core.cache import cache
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -133,7 +135,8 @@ class ChatbotViewSet(viewsets.ViewSet):
             timings['assistant_message_save_time'] = f"{time.perf_counter() - assist_msg_start:.2f} seconds"
 
             # Summarize conversation for history management
-            llm_client = GroqLLMClient()
+            # llm_client = GroqLLMClient()
+            llm_client = MistralLLMClient()
             summary_prompt = (
                 "Summarize the following conversation in 2-3 lines, capturing the key points:\n\n"
                 f"User: {message_content}\n"
@@ -171,7 +174,7 @@ class ChatbotViewSet(viewsets.ViewSet):
             )
 
     def _determine_action_type(self, user_query):
-        llm_client = GroqLLMClient()
+        llm_client = MistralLLMClient()
         json_format_str = '{"action": "selected_action"}'
         
         # Enhanced prompt with explicit decision rules and examples.
@@ -250,13 +253,14 @@ class ChatbotViewSet(viewsets.ViewSet):
             logger.info(f"Using document context with {len(context_chunks)} chunks")
 
         # Build conversation context using sliding window and summarization
-        llm_client = GroqLLMClient()
+        llm_client = MistralLLMClient()
         conversation_context = self._build_context_prompt(conversation, llm_client)
 
         combined_prompt = (
             f"{document_context}\n\nConversation Context:\n{conversation_context}\n\nUser: {message_content}"
         )
 
+        llm_client = GroqLLMClient()
         # Generate the assistant's response
         llm_start = time.perf_counter()
         response_content = llm_client.generate_response(
@@ -492,6 +496,7 @@ Here is the data:
         If the conversation summary is too long, re-summarize it.
         This uses a basic word count approximation.
         """
+        llm_client = MistralLLMClient()
         summary = conversation.summary or ""
         if len(summary.split()) > word_threshold:
             prompt = (
@@ -519,8 +524,21 @@ Here is the data:
     def history(self, request):
         conversation_id = request.query_params.get('conversation_id')
         asset_id = request.query_params.get('asset_id')
-
+        
+        # Set the cache timeout (in seconds). Adjust this according to your needs.
+        cache_timeout = 60  # e.g., cache for 60 seconds
+        
         if conversation_id:
+            # Define a cache key based on the conversation id
+            cache_key = f"chat_history_conversation_{conversation_id}"
+            
+            # Try to retrieve the history from cache.
+            cached_data = cache.get(cache_key)
+            if cached_data:
+                # Cached data found, return it immediately.
+                return Response(cached_data)
+            
+            # No cache present: fetch the conversation and messages from the database.
             conversation = get_object_or_404(Conversation, id=conversation_id)
             messages = Message.objects.filter(conversation=conversation).order_by('created_at')
             message_pairs = []
@@ -555,10 +573,21 @@ Here is the data:
                     'user_message': user_message,
                     'system_message': None
                 })
+
+            # Serialize the data.
             serializer = MessagePairSerializer(message_pairs, many=True)
-            return Response(serializer.data)
+            response_data = serializer.data
+            # Save the serialized data to cache.
+            cache.set(cache_key, response_data, timeout=cache_timeout)
+            return Response(response_data)
 
         elif asset_id:
+            # Define a cache key for asset-based conversation histories.
+            cache_key = f"chat_history_asset_{asset_id}"
+            cached_data = cache.get(cache_key)
+            if cached_data:
+                return Response(cached_data)
+            
             conversations = Conversation.objects.filter(asset_id=asset_id).order_by('-updated_at')
             all_message_pairs = []
             for conversation in conversations:
@@ -593,8 +622,12 @@ Here is the data:
                         'user_message': user_message,
                         'system_message': None
                     })
+            
             serializer = MessagePairSerializer(all_message_pairs, many=True)
-            return Response(serializer.data)
+            response_data = serializer.data
+            cache.set(cache_key, response_data, timeout=cache_timeout)
+            return Response(response_data)
+
         else:
             return Response(
                 {"error": "Please provide either conversation_id or asset_id as query parameters."},
