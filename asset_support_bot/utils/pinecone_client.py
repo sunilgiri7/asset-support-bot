@@ -44,6 +44,9 @@ class PineconeClient:
             # In-memory cache for query results (key: query parameters, value: result)
             self.query_cache = {}
             
+            # Define Pinecone metadata size limit (slightly below the actual limit for safety)
+            self.METADATA_SIZE_LIMIT = 40000  # Actual limit is 40960 bytes
+            
             logger.info(f"Pinecone client initialized successfully using model {model_name}")
         except Exception as e:
             logger.error(f"Pinecone initialization error: {str(e)}")
@@ -73,7 +76,8 @@ class PineconeClient:
 
     def store_document_chunks(self, chunks, asset_id, document_id):
         """
-        Store document chunks in Pinecone with robust error handling.
+        Store document chunks in Pinecone with robust error handling and
+        metadata size limit management.
         """
         try:
             if not chunks:
@@ -81,6 +85,8 @@ class PineconeClient:
                 return False
             
             vectors = []
+            large_chunks_count = 0
+            
             for i, chunk in enumerate(chunks):
                 if not chunk or not chunk.strip():
                     logger.debug(f"Skipping empty chunk {i}")
@@ -93,13 +99,43 @@ class PineconeClient:
                     continue
                 
                 asset_id_str = str(asset_id)
-                metadata = {
+                
+                # Base metadata without text field
+                base_metadata = {
                     "asset_id": asset_id_str,
                     "document_id": str(document_id),
                     "chunk_index": i,
-                    "text": chunk,
                 }
+                
+                # Estimate base metadata size
+                base_metadata_size = len(str(base_metadata).encode('utf-8'))
+                
+                # Calculate available space for text
+                text_size_limit = self.METADATA_SIZE_LIMIT - base_metadata_size - 100  # Extra buffer for safety
+                
+                # Check if text needs truncation
+                chunk_bytes = chunk.encode('utf-8')
+                chunk_size = len(chunk_bytes)
+                
+                metadata = base_metadata.copy()
+                if chunk_size <= text_size_limit:
+                    # Text fits within limit
+                    metadata["text"] = chunk
+                else:
+                    # Text needs truncation
+                    large_chunks_count += 1
+                    # Truncate to byte limit then decode back to string
+                    truncated_text = chunk_bytes[:text_size_limit].decode('utf-8', errors='ignore')
+                    metadata["text"] = truncated_text
+                    metadata["is_truncated"] = True
+                    metadata["original_length"] = len(chunk)
+                    metadata["truncated_length"] = len(truncated_text)
+                    logger.info(f"Chunk {i} truncated from {len(chunk)} to {len(truncated_text)} characters due to metadata size limit")
+                
                 vectors.append((vector_id, embedding, metadata))
+            
+            if large_chunks_count > 0:
+                logger.warning(f"Truncated {large_chunks_count} out of {len(vectors)} chunks due to metadata size limits")
             
             if vectors:
                 batch_size = 100
@@ -160,11 +196,19 @@ class PineconeClient:
                 score = match.score
                 logger.debug(f"Match Score: {score}")
                 if score >= similarity_threshold:
+                    text = match.metadata.get("text", "")
+                    
+                    # Check if this is a truncated chunk
+                    is_truncated = match.metadata.get("is_truncated", False)
+                    if is_truncated:
+                        logger.debug(f"Retrieved truncated text chunk: original length {match.metadata.get('original_length')}, truncated to {match.metadata.get('truncated_length')}")
+                    
                     chunk_info = {
-                        "text": match.metadata.get("text", ""),
+                        "text": text,
                         "score": score,
                         "document_id": match.metadata.get("document_id", ""),
-                        "chunk_index": match.metadata.get("chunk_index", -1)
+                        "chunk_index": match.metadata.get("chunk_index", -1),
+                        "is_truncated": is_truncated
                     }
                     chunks.append(chunk_info)
             
@@ -226,7 +270,8 @@ class PineconeClient:
                     "text": match.metadata.get("text", ""),
                     "score": match.score,
                     "document_id": match.metadata.get("document_id", ""),
-                    "chunk_index": match.metadata.get("chunk_index", -1)
+                    "chunk_index": match.metadata.get("chunk_index", -1),
+                    "is_truncated": match.metadata.get("is_truncated", False)
                 }
                 fallback_chunks.append(chunk_info)
 
