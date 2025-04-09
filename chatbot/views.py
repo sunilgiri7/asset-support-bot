@@ -251,13 +251,33 @@ class ChatbotViewSet(viewsets.ViewSet):
         else:
             document_context = self._format_context(context_chunks)
             logger.info(f"Using document context with {len(context_chunks)} chunks")
+        
+        # Safely handle document context
+        if document_context is None:
+            document_context = ""  # Ensure it's not None
+            logger.warning("Document context is None, using empty string instead")
+        
+        # Use a word count limit for the document context
+        document_context_words = document_context.split() if document_context else []
+        max_context_words = 2000
+        if len(document_context_words) > max_context_words:
+            document_context = ' '.join(document_context_words[:max_context_words])
+            document_context += "\n[NOTE: Context was truncated due to size limits]"
+            logger.info(f"Truncated document context to {max_context_words} words")
 
         # Build conversation context using sliding window and summarization
         llm_client = MistralLLMClient()
         conversation_context = self._build_context_prompt(conversation, llm_client)
+        if conversation_context is None:
+            conversation_context = ""  # Ensure it's not None
+            logger.warning("Conversation context is None, using empty string instead")
 
+        # Optimize prompt structure
         combined_prompt = (
-            f"{document_context}\n\nConversation Context:\n{conversation_context}\n\nUser: {message_content}"
+            f"Relevant Document Information:\n{document_context}\n\n"
+            f"Conversation History:\n{conversation_context}\n\n"
+            f"Current User Query: {message_content}\n\n"
+            "Respond directly to the user's current query using the provided context and conversation history."
         )
 
         llm_client = GroqLLMClient()
@@ -431,6 +451,10 @@ Here is the data:
             logger.error("PineconeClient is not initialized")
             return []
 
+        if query is None:
+            logger.error("Query is None")
+            return []
+            
         logger.info(f"Retrieving context for query: {query} for asset_id: {asset_id}")
         query = self._preprocess_query(query)
 
@@ -448,6 +472,8 @@ Here is the data:
                 return context_chunks
         except concurrent.futures.TimeoutError:
             logger.error("Vector search timed out after 5 seconds")
+        except Exception as e:
+            logger.error(f"Error in vector search: {str(e)}")
 
         try:
             fallback_chunks = pinecone_client.get_fallback_chunks(asset_id, limit=top_k)
@@ -458,10 +484,12 @@ Here is the data:
             logger.error(f"Fallback retrieval failed: {str(e)}")
 
         logger.warning("All context retrieval methods failed")
-        return []
+        return []  # Always return a list, even if empty
 
     def _preprocess_query(self, query):
-        query = query.strip()
+        if query is None:
+            return ""
+        query = str(query).strip()  # Convert to string in case it's not already
         max_query_length = 200
         if len(query) > max_query_length:
             logger.info(f"Truncating query from {len(query)} to {max_query_length} chars")
@@ -471,11 +499,28 @@ Here is the data:
     def _format_context(self, context_chunks):
         if not context_chunks:
             return ""
+        
         sorted_chunks = sorted(context_chunks, key=lambda x: x.get('score', 0), reverse=True)
-        return "\n\n".join([
-            f"Context Chunk {i+1} (Relevance: {chunk['score']:.2f}):\n{chunk['text']}"
-            for i, chunk in enumerate(sorted_chunks)
-        ])
+        
+        # Format context more efficiently
+        formatted_chunks = []
+        for i, chunk in enumerate(sorted_chunks):
+            # Extract only the most relevant portion from each chunk
+            chunk_text = chunk.get('text', '')  # Use get with default to handle missing keys
+            if not chunk_text:  # Skip empty chunks
+                continue
+                
+            score = chunk.get('score', 0)
+            
+            # Skip low relevance chunks
+            if score < 0.7:
+                continue
+                
+            # Include shorter version of the chunks with score info
+            formatted_chunks.append(f"Document Context {i+1} (Relevance: {score:.2f}):\n{chunk_text}")
+        
+        # Join all chunks with clear separation
+        return "\n\n".join(formatted_chunks)
 
     def _build_conversation_context(self, conversation, max_recent=10):
         """
@@ -633,54 +678,3 @@ Here is the data:
                 {"error": "Please provide either conversation_id or asset_id as query parameters."},
                 status=status.HTTP_400_BAD_REQUEST
             )
-
-
-@api_view(['POST'])
-def analyze_vibration(request):
-    serializer = VibrationAnalysisInputSerializer(data=request.data)
-    if serializer.is_valid():
-        data = serializer.validated_data
-
-        prompt = f"""
-You are a level 3 vibration analyst.
-Perform a comprehensive analysis of the asset's condition using the full set of provided data.
-Return your analysis as a structured JSON object with the following keys:
-- "overview": A brief summary of the asset's condition.
-- "time_domain_analysis": Detailed analysis of the acceleration and velocity time waveforms.
-- "frequency_domain_analysis": Analysis of the harmonics and cross PSD data.
-- "bearing_faults": Analysis of the bearing fault frequencies.
-- "recommendations": A list of actionable maintenance recommendations.
-
-Here is the data:
-{{
-  "asset_type": "{data['asset_type']}",
-  "running_RPM": {data['running_RPM']},
-  "bearing_fault_frequencies": {data['bearing_fault_frequencies']},
-  "acceleration_time_waveform": {data['acceleration_time_waveform']},
-  "velocity_time_waveform": {data['velocity_time_waveform']},
-  "harmonics": {data['harmonics']},
-  "cross_PSD": {data['cross_PSD']}
-}}
-
-**Instructions**:
-- Provide a concise "overview" of the overall condition.
-- In "time_domain_analysis", include metrics and any concerning trends from the acceleration and velocity time waveforms.
-- In "frequency_domain_analysis", detail the implications of the harmonics and cross PSD data.
-- In "bearing_faults", mention whether there are any signs of bearing damage.
-- In "recommendations", list clear maintenance actions.
-- **Return only valid JSON** without any additional markdown or HTML.
-"""
-        client = GroqLLMClient()
-        response_text = client.query_llm([
-            {"role": "user", "content": prompt}
-        ])
-
-        try:
-            analysis_data = json.loads(response_text)
-        except Exception as e:
-            analysis_data = {
-                "error": "Failed to parse LLM response into JSON.",
-                "raw_response": response_text
-            }
-        return Response({"analysis": analysis_data})
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
