@@ -177,28 +177,45 @@ class ChatbotViewSet(viewsets.ViewSet):
         llm_client = MistralLLMClient()
         json_format_str = '{"action": "selected_action"}'
         
+        # Enhanced prompt with explicit decision rules and examples.
         prompt = f"""
-    You are a smart task routing bot. Your job is to analyze the user's query and decide the best method to respond. Your available actions are:
-    1. "document_query": For queries answerable by internal documentation.
-    2. "fetch_data": For queries asking for structured data.
-    3. "web_search": For queries requiring current or trending information.
-    Instructions:
-    - Analyze the query carefully.
-    - Choose only one action based on its intent.
-    - Return ONLY a valid JSON object with exactly this format: {json_format_str}
-    - Do NOT include any extra text, explanations, markdown, or HTML. Only output raw JSON.
-    User Query: "{user_query}"
-    """
+                You are an intelligent Task Routing Agent. Your primary function is to accurately classify a user's query and select the single best action to fulfill it based on the likely source of the required information and the query's intent.
+
+                Your Available Actions and Decision Criteria:
+
+                1.  **document_query**:
+                    - **Intent:** The user is asking for information, summaries, or details contained within specific internal documents, knowledge bases, or files previously provided or uploaded by the user (e.g., reports, manuals, resumes, technical specifications, project plans).
+                    - **Keywords/Context Cues:** Look for references to specific documents, project names, section titles, or named entities (like people, specific internal components) where the context suggests the information source is internal or user-provided files. If a query mentions a specific entity that isn't globally famous, assume it might refer to internal/uploaded context first.
+                    - **Choose If:** The most logical place to find the answer is within the system's accessible documents or files.
+
+                2.  **fetch_data**:
+                    - **Intent:** The user explicitly requests to retrieve *and* subsequently analyze/process structured operational data, often time-series or sensor data, for a specific monitored asset or system. This usually involves an identifier (like an asset ID).
+                    - **Keywords/Context Cues:** Look for terms like "fetch data", "analyze vibration", "get readings for asset", "check status of system ID", combined with a specific asset/system identifier.
+                    - **Choose ONLY If:** The request clearly requires **both data retrieval from a specific API endpoint AND subsequent computational analysis** (like the vibration analysis described). Do *not* use this for simply retrieving descriptive information *about* an asset if that info is likely in a document.
+
+                3.  **web_search**:
+                    - **Intent:** The user is asking for general knowledge, current events, real-time information (e.g., weather, stock prices), definitions, information about public figures/companies/places, or topics clearly outside the scope of known internal documents and specific asset data APIs.
+                    - **Keywords/Context Cues:** General questions, news, trends, information readily available on the public internet.
+                    - **Choose If:** The information is unlikely to be found in internal/uploaded documents or requires accessing up-to-the-minute external data, OR if the query is ambiguous and doesn't strongly suggest an internal source or asset data task. Use as the default for broad, open-ended questions about the world.
+
+                General Instructions:
+                - Analyze the user query's core intent: Are they asking for knowledge retrieval, data processing, or general information?
+                - Determine the most probable *source*: Internal/Uploaded Documents, Specific Asset Data API, or the External Web.
+                - Prioritize `document_query` if the query involves specific, non-public named entities or refers to document-like context, suggesting an internal or uploaded source is relevant.
+                - Select **only one** action.
+                - Your output **MUST** be a single, valid JSON object adhering *exactly* to the following format: {json_format_str}
+                - **DO NOT** output any text, explanations, greetings, markdown, code comments, or apologies before or after the JSON object. Your response must contain ONLY the raw JSON.
+
+                ---
+                User Query: "{user_query}"
+                Final JSON Output: {json_format_str}
+                """
+
         try:
             response = llm_client.generate_response(prompt=prompt, context="")
-            logger.info("Raw action determination response: %s", response)
-            
-            # If the response looks like HTML, strip the HTML tags.
-            if "<div" in response or "</div>" in response:
-                logger.warning("HTML detected in response, stripping HTML tags.")
-                response = strip_html_tags(response).strip()
-            
-            # Now try to extract the JSON.
+            logger.info("Action determination response: %s", response)
+
+            # 🔍 Try to extract raw JSON using regex
             match = re.search(r'\{.*?"action"\s*:\s*"(document_query|fetch_data|web_search)".*?\}', response)
             if match:
                 action_json_str = match.group(0)
@@ -212,6 +229,7 @@ class ChatbotViewSet(viewsets.ViewSet):
             else:
                 logger.error("No valid action JSON found in response: %s", response)
                 return "document_query"
+
         except Exception as e:
             logger.error("Error in action determination: %s", str(e))
             return "document_query"
@@ -667,8 +685,3 @@ Here is the data:
                 {"error": "Please provide either conversation_id or asset_id as query parameters."},
                 status=status.HTTP_400_BAD_REQUEST
             )
-        
-def strip_html_tags(text):
-    """Remove HTML tags from the response."""
-    clean = re.compile('<.*?>')
-    return re.sub(clean, '', text)
