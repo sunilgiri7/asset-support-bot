@@ -177,38 +177,28 @@ class ChatbotViewSet(viewsets.ViewSet):
         llm_client = MistralLLMClient()
         json_format_str = '{"action": "selected_action"}'
         
-        # Enhanced prompt with explicit decision rules and examples.
         prompt = f"""
-    You are a smart task routing bot. Your job is to analyze the user's query and decide the best method to respond based on its semantic context.
-    Your available actions are:
-
-    1. "document_query": Use this action when the query asks for information that can be answered from internal documentation, such as configuration instructions, technical manuals, or API parameter details.
-    - Example: "How do I configure the logging system?" or "What are the parameters for the API call?"
-
-    2. "fetch_data": Use this action when the query is asking for specific, structured data that should be fetched from an API response. Typically, these queries involve numeric or analytic data, such as measurements or detailed technical reports.
-    - Example: "Get me the current vibration analysis data for asset X." or "What are the latest sensor readings?"
-
-    3. "web_search": Use this action when the query requires current or trending information from the web, especially when it involves recent or temporal events.
-    - Example: "Provide the details of yesterday's IPL match." or "What is the latest news on technology trends?"
-
+    You are a smart task routing bot. Your job is to analyze the user's query and decide the best method to respond. Your available actions are:
+    1. "document_query": For queries answerable by internal documentation.
+    2. "fetch_data": For queries asking for structured data.
+    3. "web_search": For queries requiring current or trending information.
     Instructions:
-    - Carefully analyze the query and consider any temporal cues (such as "yesterday", "latest") or event-related keywords.
-    - Choose a single action that best fits the query's intent.
-    - Return only a valid JSON object in exactly this format: {json_format_str}
-    - Do NOT include any explanation or HTML. Just return the JSON.
-
-    User Query: "{user_query}"
-
-    where "selected_action" must be one of "document_query", "fetch_data", or "web_search".
-
+    - Analyze the query carefully.
+    - Choose only one action based on its intent.
+    - Return ONLY a valid JSON object with exactly this format: {json_format_str}
+    - Do NOT include any extra text, explanations, markdown, or HTML. Only output raw JSON.
     User Query: "{user_query}"
     """
-
         try:
             response = llm_client.generate_response(prompt=prompt, context="")
-            logger.info("Action determination response: %s", response)
-
-            # 🔍 Try to extract raw JSON using regex
+            logger.info("Raw action determination response: %s", response)
+            
+            # If the response looks like HTML, strip the HTML tags.
+            if "<div" in response or "</div>" in response:
+                logger.warning("HTML detected in response, stripping HTML tags.")
+                response = strip_html_tags(response).strip()
+            
+            # Now try to extract the JSON.
             match = re.search(r'\{.*?"action"\s*:\s*"(document_query|fetch_data|web_search)".*?\}', response)
             if match:
                 action_json_str = match.group(0)
@@ -222,7 +212,6 @@ class ChatbotViewSet(viewsets.ViewSet):
             else:
                 logger.error("No valid action JSON found in response: %s", response)
                 return "document_query"
-
         except Exception as e:
             logger.error("Error in action determination: %s", str(e))
             return "document_query"
@@ -678,3 +667,8 @@ Here is the data:
                 {"error": "Please provide either conversation_id or asset_id as query parameters."},
                 status=status.HTTP_400_BAD_REQUEST
             )
+        
+def strip_html_tags(text):
+    """Remove HTML tags from the response."""
+    clean = re.compile('<.*?>')
+    return re.sub(clean, '', text)
