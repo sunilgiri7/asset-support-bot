@@ -179,37 +179,30 @@ class ChatbotViewSet(viewsets.ViewSet):
         
         # Enhanced prompt with explicit decision rules and examples.
         prompt = f"""
-                You are an intelligent Task Routing Agent. Your primary function is to accurately classify a user's query and select the single best action to fulfill it based on the likely source of the required information and the query's intent.
+    You are a smart task routing bot. Your job is to analyze the user's query and decide the best method to respond based on its semantic context.
+    Your available actions are:
 
-                Your Available Actions and Decision Criteria:
+    1. "document_query": Use this action when the query asks for information that can be answered from internal documentation, such as configuration instructions, technical manuals, or API parameter details.
+    - Example: "How do I configure the logging system?" or "What are the parameters for the API call?"
 
-                1.  **document_query**:
-                    - **Intent:** The user is asking for information, summaries, or details contained within specific internal documents, knowledge bases, or files previously provided or uploaded by the user (e.g., reports, manuals, resumes, technical specifications, project plans).
-                    - **Keywords/Context Cues:** Look for references to specific documents, project names, section titles, or named entities (like people, specific internal components) where the context suggests the information source is internal or user-provided files. If a query mentions a specific entity that isn't globally famous, assume it might refer to internal/uploaded context first.
-                    - **Choose If:** The most logical place to find the answer is within the system's accessible documents or files.
+    2. "fetch_data": Use this action when the query is asking for specific, structured data that should be fetched from an API response. Typically, these queries involve numeric or analytic data, such as measurements or detailed technical reports.
+    - Example: "Get me the current vibration analysis data for asset X." or "What are the latest sensor readings?"
 
-                2.  **fetch_data**:
-                    - **Intent:** The user explicitly requests to retrieve *and* subsequently analyze/process structured operational data, often time-series or sensor data, for a specific monitored asset or system. This usually involves an identifier (like an asset ID).
-                    - **Keywords/Context Cues:** Look for terms like "fetch data", "analyze vibration", "get readings for asset", "check status of system ID", combined with a specific asset/system identifier.
-                    - **Choose ONLY If:** The request clearly requires **both data retrieval from a specific API endpoint AND subsequent computational analysis** (like the vibration analysis described). Do *not* use this for simply retrieving descriptive information *about* an asset if that info is likely in a document.
+    3. "web_search": Use this action when the query requires current or trending information from the web, especially when it involves recent or temporal events.
+    - Example: "Provide the details of yesterday's IPL match." or "What is the latest news on technology trends?"
 
-                3.  **web_search**:
-                    - **Intent:** The user is asking for general knowledge, current events, real-time information (e.g., weather, stock prices), definitions, information about public figures/companies/places, or topics clearly outside the scope of known internal documents and specific asset data APIs.
-                    - **Keywords/Context Cues:** General questions, news, trends, information readily available on the public internet.
-                    - **Choose If:** The information is unlikely to be found in internal/uploaded documents or requires accessing up-to-the-minute external data, OR if the query is ambiguous and doesn't strongly suggest an internal source or asset data task. Use as the default for broad, open-ended questions about the world.
+    Instructions:
+    - Carefully analyze the query and consider any temporal cues (such as "yesterday", "latest") or event-related keywords.
+    - Choose a single action that best fits the query's intent.
+    - Return only a valid JSON object in exactly this format: {json_format_str}
+    - Do NOT include any explanation or HTML. Just return the JSON.
 
-                General Instructions:
-                - Analyze the user query's core intent: Are they asking for knowledge retrieval, data processing, or general information?
-                - Determine the most probable *source*: Internal/Uploaded Documents, Specific Asset Data API, or the External Web.
-                - Prioritize `document_query` if the query involves specific, non-public named entities or refers to document-like context, suggesting an internal or uploaded source is relevant.
-                - Select **only one** action.
-                - Your output **MUST** be a single, valid JSON object adhering *exactly* to the following format: {json_format_str}
-                - **DO NOT** output any text, explanations, greetings, markdown, code comments, or apologies before or after the JSON object. Your response must contain ONLY the raw JSON.
+    User Query: "{user_query}"
 
-                ---
-                User Query: "{user_query}"
-                Final JSON Output: {json_format_str}
-                """
+    where "selected_action" must be one of "document_query", "fetch_data", or "web_search".
+
+    User Query: "{user_query}"
+    """
 
         try:
             response = llm_client.generate_response(prompt=prompt, context="")
@@ -279,12 +272,10 @@ class ChatbotViewSet(viewsets.ViewSet):
             conversation_context = ""  # Ensure it's not None
             logger.warning("Conversation context is None, using empty string instead")
 
-        # Optimize prompt structure
         combined_prompt = (
             f"Relevant Document Information:\n{document_context}\n\n"
             f"Conversation History:\n{conversation_context}\n\n"
             f"Current User Query: {message_content}\n\n"
-            "Respond directly to the user's current query using the provided context and conversation history."
         )
 
         llm_client = GroqLLMClient()
@@ -491,7 +482,7 @@ Here is the data:
             logger.error(f"Fallback retrieval failed: {str(e)}")
 
         logger.warning("All context retrieval methods failed")
-        return []  # Always return a list, even if empty
+        return []
 
     def _preprocess_query(self, query):
         if query is None:
@@ -506,28 +497,11 @@ Here is the data:
     def _format_context(self, context_chunks):
         if not context_chunks:
             return ""
-        
         sorted_chunks = sorted(context_chunks, key=lambda x: x.get('score', 0), reverse=True)
-        
-        # Format context more efficiently
-        formatted_chunks = []
-        for i, chunk in enumerate(sorted_chunks):
-            # Extract only the most relevant portion from each chunk
-            chunk_text = chunk.get('text', '')  # Use get with default to handle missing keys
-            if not chunk_text:  # Skip empty chunks
-                continue
-                
-            score = chunk.get('score', 0)
-            
-            # Skip low relevance chunks
-            if score < 0.7:
-                continue
-                
-            # Include shorter version of the chunks with score info
-            formatted_chunks.append(f"Document Context {i+1} (Relevance: {score:.2f}):\n{chunk_text}")
-        
-        # Join all chunks with clear separation
-        return "\n\n".join(formatted_chunks)
+        return "\n\n".join([
+            f"Context Chunk {i+1} (Relevance: {chunk['score']:.2f}):\n{chunk['text']}"
+            for i, chunk in enumerate(sorted_chunks)
+        ])
 
     def _build_conversation_context(self, conversation, max_recent=10):
         """

@@ -64,3 +64,4 @@ watchdog==2.3.0
 wcwidth==0.2.13
 gunicorn==20.1.0
 beautifulsoup4
+langchain
